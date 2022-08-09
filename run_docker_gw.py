@@ -46,14 +46,14 @@ iterations = 0
 sleep_s = 20
 health_check = "http://localhost:5555/rest/apigateway/health"
 location = 'C:/Users/y508854/AppData/Roaming/npm/newman'
-docker_location = 'C:/Users/y508854/OneDrive - Software AG/Documents/API Gateway Resources/Docker Gateway'
+# docker_location = 'C:/Users/y508854/OneDrive - Software AG/Documents/API Gateway Resources/Docker Gateway'
 docker_run = 'docker compose up -d'
 header = {
     "Accept": "application/json"
 }
 
 print("starting API GW via docker compose...")
-return_code = subprocess.call(f"cd {docker_location} && {docker_run}", shell=True)
+return_code = subprocess.call(f"{docker_run}", shell=True)
 print(return_code)
 
 while(iterations < max_iterations):

@@ -5,7 +5,7 @@
 version: '3.5'
 services:
     apigateway-1:
-        image: softwareag/apigateway-trial:10.11
+        image: sagcr.azurecr.io/apigateway:10.11
         container_name: api-gateway-1011-1
         volumes:
             - ./imports/licensefiles:/opt/licensefiles
