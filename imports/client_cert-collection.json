@@ -1,0 +1,278 @@
+{
+	"info": {
+		"_postman_id": "aa876cdf-dc40-4d93-92c0-689d13dd23a7",
+		"name": "SSL Certificate Authentication",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create New Truststore",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "manage",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "Administrator",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "uploadFileName",
+							"value": "client_certificate_docker.jks",
+							"type": "text"
+						},
+						{
+							"key": "keyStoreType",
+							"value": "JKS",
+							"type": "text"
+						},
+						{
+							"key": "keyStoreProvider",
+							"value": "SUN",
+							"type": "text"
+						},
+						{
+							"key": "keyStorePassword",
+							"value": "MRCZ4Uqd2X3b3wx1",
+							"type": "text"
+						},
+						{
+							"key": "keyStoreName",
+							"value": "client_certificate_docker",
+							"type": "text"
+						},
+						{
+							"key": "keyStoreDescription",
+							"value": "client certificate for ssl poc in docker",
+							"type": "text"
+						},
+						{
+							"key": "fileContent",
+							"type": "file",
+							"src": "/C:/Users/y508854/OneDrive - Software AG/Documents/API Gateway Resources/Docker Gateway/imports/client_cert/client_certificate_docker.jks"
+						},
+						{
+							"key": "isPwdBase64Encoded",
+							"value": "true",
+							"type": "text"
+						},
+						{
+							"key": "keyStorePassword",
+							"value": "TVJDWjRVcWQyWDNiM3d4MQ==",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:5555/rest/apigateway/is/truststore",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5555",
+					"path": [
+						"rest",
+						"apigateway",
+						"is",
+						"truststore"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Import API w/ Client Certificate Auth",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "manage",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "Administrator",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "file",
+					"file": {
+						"src": "/C:/Users/y508854/OneDrive - Software AG/Documents/API Gateway Resources/Docker Gateway/imports/client_cert/ClientCertificate_PoC.zip"
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5555/rest/apigateway/archive?overwrite=*&fixingMissingVersions=false",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5555",
+					"path": [
+						"rest",
+						"apigateway",
+						"archive"
+					],
+					"query": [
+						{
+							"key": "overwrite",
+							"value": "*"
+						},
+						{
+							"key": "fixingMissingVersions",
+							"value": "false"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deactivate SSL Port",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "manage",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "Administrator",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"listenerKey\": \"HTTPSListener@5543\", \r\n   \"pkg\": \"WmRoot\", \r\n   \"requestServiceStatus\": \"\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5555/rest/apigateway/ports/disable",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5555",
+					"path": [
+						"rest",
+						"apigateway",
+						"ports",
+						"disable"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update SSL Port",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "manage",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "Administrator",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"factoryKey\": \"webMethods/HTTP\",\r\n    \"listenerKey\": \"HTTPSListener@5543\",\r\n    \"oldPkg\": \"WmRoot\",\r\n    \"listenerType\": \"Regular\",\r\n    \"ssl\": \"true\",\r\n    \"certChain\": \"\",\r\n    \"enable\": \"yes\",\r\n    \"port\": 5543,\r\n    \"portAlias\": \"DefaultSecure\",\r\n    \"portDescription\": \"Default HTTPS Port\",\r\n    \"pkg\": \"WmRoot\",\r\n    \"bindAddress\": null,\r\n    \"maxQueue\": \"65534\",\r\n    \"keepAliveTimeout\": \"20000\",\r\n    \"threadPool\": \"false\",\r\n    \"minThread\": null,\r\n    \"maxThread\": null,\r\n    \"threadPriority\": null,\r\n    \"curDelay\": null,\r\n    \"useJSSE\": \"yes\",\r\n    \"clientAuth\": \"request\",\r\n    \"idProvider\": \"salesforce.com\",\r\n    \"krbJaasContext\": null,\r\n    \"krbClientPrincipal\": null,\r\n    \"krbClientPassword\": null,\r\n    \"retype_krbClientPassword\": null,\r\n    \"krbServicePrincipalForm\": \"username\",\r\n    \"krbServicePrincipal\": null,\r\n    \"keyStore\": \"DEFAULT_IS_KEYSTORE\",\r\n    \"alias\": \"ssos\",\r\n    \"trustStore\": \"client_certificate_docker\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5555/rest/apigateway/ports",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5555",
+					"path": [
+						"rest",
+						"apigateway",
+						"ports"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

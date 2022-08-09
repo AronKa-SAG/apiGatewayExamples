@@ -1,0 +1,45 @@
+# This docker-compose file is an example for a setup with a single API Gateway container and a single Elasticsearch container.
+# The image name of API Gateway can be set by modifying the .env file when the file is in the working directory or by setting the environment variable APIGW_DOCKER_IMAGE_NAME.
+# To use this file run: docker-compose -f apigw-elasticsearch-no-cluster.yml up
+# Append -d to run it in detached mode.
+# To stop and remove containers, networks, volumes and images created by up run: docker-compose -f apigw-elasticsearch-no-cluster.yml down
+version: '3.5'
+services:
+    apigateway-1:
+        image: store/softwareag/apigateway-trial:10.11
+        container_name: api-gateway-1011-1
+        # Setting for exposing ports to the outside (external port:internal port).
+        ports:
+          - 5555:5555
+          - 5543:5543
+          - 9072:9072
+        # Needs to be the same network for all containers.
+        networks:
+          - devportal-network
+          
+    elasticsearch:
+        image: docker.elastic.co/elasticsearch/elasticsearch:7.13.1
+        container_name: elasticsearch
+        environment:
+          - discovery.type=single-node
+        ports:
+          # REST interface
+          - 9240:9200
+          # Nodes communication
+          - 9340:1300
+        networks:
+          - devportal-network
+    
+    devportal:
+        image: store/softwareag/devportal:10.11.0.1	
+        container_name: devportal-1011
+        environment:
+          - SPRING_ELASTICSEARCH_REST_URIS="http://elasticsearch:9200"
+        ports:
+          - 80:8083
+        networks:
+          - devportal-network
+          
+networks:
+  devportal-network:
+    name: devportal-network

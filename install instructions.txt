@@ -1,0 +1,28 @@
+Installation:
+
+1. install docker for windows desktop
+
+2. create docker account and subscribe to sag api gw
+-> https://hub.docker.com/publishers/softwareag
+
+3. download API GW images from sag docker 
+-> docker pull store/softwareag/apigateway-trial:10.*
+
+4. run API GW 10.5 / 10.7 docker image
+-> docker run -d -p 5555:5555 -p 9072:9072 --hostname apigw-host --name apigw store/softwareag/apigateway-trial:10.5
+
+5. download & run keycloak image 
+-> docker run -p 8080:8080 -e KEYCLOAK_USER=admin -e KEYCLOAK_PASSWORD=admin quay.io/keycloak/keycloak:12.0.4
+-> Admin console: http://localhost:8080/auth/admin
+Export keycloak config:
+bin/standalone.sh -Djboss.socket.binding.port-offset=100 -Dkeycloak.migration.action=export -Dkeycloak.migration.provider=singleFile -Dkeycloak.migration.realmName=demo -Dkeycloak.migration.usersExportStrategy=REALM_FILE -Dkeycloak.migration.file=~/keycloak/imports/my_realm.json
+
+6. Create docker compose files for unconfigured GW with network, environment vars
+
+7. Create docker compose files for 10.7 using external configuration in compose files for keycloak usecase
+
+Setup:
+1. Create realm in keycloak with keycloak_realm_export.json
+2. Setup external AS in GW with authServer.zip
+
+for rnd images: https://dtr:4443/

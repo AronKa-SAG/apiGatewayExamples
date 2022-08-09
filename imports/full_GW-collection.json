@@ -1,0 +1,782 @@
+{
+	"info": {
+		"_postman_id": "09814969-23ff-4432-97d4-91a8f182c4d1",
+		"name": "Full GW Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Keycloak",
+			"item": [
+				{
+					"name": "Import Keycloak AS",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "manage",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "Administrator",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "file",
+							"file": {
+								"src": "/C:/Users/y508854/OneDrive - Software AG/Documents/API Gateway Resources/Docker Gateway/imports/keycloak/settings_authServer.zip"
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5555/rest/apigateway/archive?overwrite=*&fixingMissingVersions=false",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5555",
+							"path": [
+								"rest",
+								"apigateway",
+								"archive"
+							],
+							"query": [
+								{
+									"key": "overwrite",
+									"value": "*"
+								},
+								{
+									"key": "fixingMissingVersions",
+									"value": "false"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Import Extended Settings",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "manage",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "Administrator",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "file",
+							"file": {
+								"src": "/C:/Users/y508854/OneDrive - Software AG/Documents/API Gateway Resources/Docker Gateway/imports/keycloak/extendend_settings.zip"
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5555/rest/apigateway/archive?overwrite=*&fixingMissingVersions=false",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5555",
+							"path": [
+								"rest",
+								"apigateway",
+								"archive"
+							],
+							"query": [
+								{
+									"key": "overwrite",
+									"value": "*"
+								},
+								{
+									"key": "fixingMissingVersions",
+									"value": "false"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Import Scope Mapping",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "manage",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "Administrator",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "file",
+							"file": {
+								"src": "/C:/Users/y508854/OneDrive - Software AG/Documents/API Gateway Resources/Docker Gateway/imports/keycloak/scope_mapping.zip"
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5555/rest/apigateway/archive?overwrite=*&fixingMissingVersions=false",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5555",
+							"path": [
+								"rest",
+								"apigateway",
+								"archive"
+							],
+							"query": [
+								{
+									"key": "overwrite",
+									"value": "*"
+								},
+								{
+									"key": "fixingMissingVersions",
+									"value": "false"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Import API Petstore",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "manage",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "Administrator",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "file",
+							"file": {
+								"src": "/C:/Users/y508854/OneDrive - Software AG/Documents/API Gateway Resources/Docker Gateway/imports/keycloak/API_Petstore.zip"
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5555/rest/apigateway/archive?overwrite=*&fixingMissingVersions=false",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5555",
+							"path": [
+								"rest",
+								"apigateway",
+								"archive"
+							],
+							"query": [
+								{
+									"key": "overwrite",
+									"value": "*"
+								},
+								{
+									"key": "fixingMissingVersions",
+									"value": "false"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Websocket",
+			"item": [
+				{
+					"name": "Create new WS Port",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "manage",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "Administrator",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"configURL\": \"/WmRoot/configWebSocket.dsp\",\r\n    \"maxQueue\": \"200\",\r\n    \"listenerKey\": \"WebSocketListener@5566\",\r\n    \"portDescription\": \"Websocket Port on 5566\",\r\n    \"listenerType\": \"WebSocket\",\r\n    \"maxThread\": \"200\",\r\n    \"threadPriority\": \"5\",\r\n    \"pkg\": \"WmRoot\",\r\n    \"enabled\": \"true\",\r\n    \"minThread\": \"10\",\r\n    \"protocol\": \"WebSocket\",\r\n    \"port\": 5566,\r\n    \"factoryKey\": \"webMethods/WebSocket\",\r\n    \"provider\": \"webMethods\",\r\n    \"idleTimeout\": \"60000\",\r\n    \"portAlias\": \"WebsocketPort\",\r\n    \"key\": \"WebSocketListener@5566\",\r\n    \"clientAuth\": \"basic\",\r\n\t\"accessMode\": \"Allow\",\r\n\t\"ipAccessMode\": \"Allow\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5555/rest/apigateway/ports",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5555",
+							"path": [
+								"rest",
+								"apigateway",
+								"ports"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Activate new WS Port",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "manage",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "Administrator",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"listenerKey\": \"WebSocketListener@5566\", \r\n   \"pkg\": \"WmRoot\", \r\n   \"requestServiceStatus\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5555/rest/apigateway/ports/enable",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5555",
+							"path": [
+								"rest",
+								"apigateway",
+								"ports",
+								"enable"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Import Websocket API",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "manage",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "Administrator",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "file",
+							"file": {
+								"src": "/C:/Users/y508854/OneDrive - Software AG/Documents/API Gateway Resources/Docker Gateway/imports/PoC Websocket.zip"
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5555/rest/apigateway/archive?overwrite=*&fixingMissingVersions=false",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5555",
+							"path": [
+								"rest",
+								"apigateway",
+								"archive"
+							],
+							"query": [
+								{
+									"key": "overwrite",
+									"value": "*"
+								},
+								{
+									"key": "fixingMissingVersions",
+									"value": "false"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Data Masking",
+			"item": [
+				{
+					"name": "Import API",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "manage",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "Administrator",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "file",
+							"file": {
+								"src": "/C:/Users/y508854/OneDrive - Software AG/Documents/API Gateway Resources/GW PoCs - Exports/POC Data Masking.zip"
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5555/rest/apigateway/archive?overwrite=*&fixingMissingVersions=false",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5555",
+							"path": [
+								"rest",
+								"apigateway",
+								"archive"
+							],
+							"query": [
+								{
+									"key": "overwrite",
+									"value": "*"
+								},
+								{
+									"key": "fixingMissingVersions",
+									"value": "false"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Context Routing",
+			"item": [
+				{
+					"name": "Import Context Routing API",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "manage",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "Administrator",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "file",
+							"file": {
+								"src": "/C:/Users/y508854/OneDrive - Software AG/Documents/API Gateway Resources/Docker Gateway/imports/POC Conditional Routing.zip"
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5555/rest/apigateway/archive?overwrite=false&fixingMissingVersions=false",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5555",
+							"path": [
+								"rest",
+								"apigateway",
+								"archive"
+							],
+							"query": [
+								{
+									"key": "overwrite",
+									"value": "false"
+								},
+								{
+									"key": "fixingMissingVersions",
+									"value": "false"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Dynamic Routing",
+			"item": [
+				{
+					"name": "Import API w/ Dynamic Routing",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "manage",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "Administrator",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "file",
+							"file": {
+								"src": "/C:/Users/y508854/OneDrive - Software AG/Documents/API Gateway Resources/Docker Gateway/imports/POC Dynamic Routing.zip"
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5555/rest/apigateway/archive?overwrite=*&fixingMissingVersions=false",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5555",
+							"path": [
+								"rest",
+								"apigateway",
+								"archive"
+							],
+							"query": [
+								{
+									"key": "overwrite",
+									"value": "*"
+								},
+								{
+									"key": "fixingMissingVersions",
+									"value": "false"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "API Mashup",
+			"item": [
+				{
+					"name": "Import Mashup",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "manage",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "Administrator",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "file",
+							"file": {
+								"src": "/C:/Users/y508854/OneDrive - Software AG/Documents/API Gateway Resources/Docker Gateway/imports/POC Mashup.zip"
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5555/rest/apigateway/archive?overwrite=*&fixingMissingVersions=false",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5555",
+							"path": [
+								"rest",
+								"apigateway",
+								"archive"
+							],
+							"query": [
+								{
+									"key": "overwrite",
+									"value": "*"
+								},
+								{
+									"key": "fixingMissingVersions",
+									"value": "false"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Import Test Users",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "manage",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "Administrator",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "file",
+					"file": {
+						"src": "/C:/Users/y508854/OneDrive - Software AG/Documents/API Gateway Resources/Docker Gateway/imports/POC test users.zip"
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5555/rest/apigateway/archive?overwrite=false&fixingMissingVersions=false",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5555",
+					"path": [
+						"rest",
+						"apigateway",
+						"archive"
+					],
+					"query": [
+						{
+							"key": "overwrite",
+							"value": "false"
+						},
+						{
+							"key": "fixingMissingVersions",
+							"value": "false"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

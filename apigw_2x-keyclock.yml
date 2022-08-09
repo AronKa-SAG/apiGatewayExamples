@@ -1,0 +1,45 @@
+# This docker-compose file is an example for a setup with a single API Gateway container and a single Elasticsearch container.
+# The image name of API Gateway can be set by modifying the .env file when the file is in the working directory or by setting the environment variable APIGW_DOCKER_IMAGE_NAME.
+# To use this file run: docker-compose -f apigw-elasticsearch-no-cluster.yml up
+# Append -d to run it in detached mode.
+# To stop and remove containers, networks, volumes and images created by up run: docker-compose -f apigw-elasticsearch-no-cluster.yml down
+version: '3.5'
+services:
+    apigateway-1:
+        image: store/softwareag/apigateway-trial:10.7	
+        container_name: api-gateway-107-1
+        # Setting for exposing ports to the outside (external port:internal port).
+        ports:
+          - 5555:5555
+          - 9072:9072
+        # Needs to be the same network for all containers.
+        networks:
+          - api-gateway-network
+          
+    apigateway-2:
+        image: store/softwareag/apigateway-trial:10.7	
+        container_name: api-gateway-107-2     
+        ports:
+          - 15555:15555
+          - 19072:19072
+        networks:
+          - api-gateway-network
+          
+    keycloak:
+        image: jboss/keycloak
+        container_name: keycloak
+        volumes:
+            - ./imports/keycloak:/opt/jboss/keycloak/imports
+        environment:
+            - KEYCLOAK_USER=admin
+            - KEYCLOAK_PASSWORD=manage
+            - KEYCLOAK_IMPORT=/opt/jboss/keycloak/imports/keycloak_realm_export.json 
+            - JDBC_PARAMS='connectTimeout=30'
+        ports:
+            - 8080:8080
+        networks:
+            - api-gateway-network
+          
+networks:
+  api-gateway-network:
+    name: api-gateway-network

@@ -1,0 +1,72 @@
+{
+	"info": {
+		"_postman_id": "34480aad-5c80-4295-bef8-3af7e0624445",
+		"name": "API Mashup Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Import Mashup",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "manage",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "Administrator",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "file",
+					"file": {
+						"src": "/C:/Users/y508854/OneDrive - Software AG/Documents/API Gateway Resources/Docker Gateway/imports/POC Mashup.zip"
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5555/rest/apigateway/archive?overwrite=false&fixingMissingVersions=false",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5555",
+					"path": [
+						"rest",
+						"apigateway",
+						"archive"
+					],
+					"query": [
+						{
+							"key": "overwrite",
+							"value": "false"
+						},
+						{
+							"key": "fixingMissingVersions",
+							"value": "false"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

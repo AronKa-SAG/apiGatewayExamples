@@ -1,0 +1,18 @@
+version: '3.5'
+services:
+    apigateway-1:
+        image: store/softwareag/apigateway-trial:10.5
+        container_name: api-gateway-105-1
+        # Setting for exposing ports to the outside (external port:internal port).
+        ports:
+          - 5555:5555
+          - 5543:5543
+          - 9072:9072
+        # Needs to be the same network for all containers.
+        networks:
+          - api-gateway-network
+          
+                    
+networks:
+  api-gateway-network:
+    name: api-gateway-network
