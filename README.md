@@ -9,14 +9,14 @@
 
 
 ## Overview
-This repository provides a way to create PoCs quickly for SAG webMethods API Gateway.
-The repo uses the docker images from SAG, available on [Software AG's Docker Page](https://hub.docker.com/publishers/softwareag).
+This repository provides multiple example usecases for SAG webMethods API Gateway.
+The repo uses the docker images from SAG, available on [Software AG's Docker Repo](https://containers.softwareag.com/products).
 
 ## Requirements
 It is expected that [Docker](https://docs.docker.com/get-docker/), [Python](https://www.python.org/downloads/), [npm](https://nodejs.org/en/download/) and [newman (via npm)](https://www.npmjs.com/package/newman#getting-started) are installed on your system.
 
 Docker images required:
-- store/softwareag/apigateway-trial
+- sagcr.azurecr.io/apigateway:10.11
 - jboss/keycloak
 
 ## Usage
@@ -25,17 +25,17 @@ Docker images required:
 The repo can be used by running the [docker-compose file](docker-compose.yml) via commandline:
 <code>docker compose up -d</code>
 
-Once Docker is started and you pulled the corresponding images, you can run the [run_docker_gw.py](run_docker_gw.py) file using the following syntax:
-<code>python run_docker_gw.py *{poc_name}*</code>
+Once Docker is started and you pulled the corresponding images, you can run the [run_docker_gw.py](run_docker_gw.py) file using the following syntax:<br>
+<code>python run_docker_gw.py *{example_name}*</code>
 
-The currently available *{poc_name}* are given when entering a wrong *{poc_name}*.
+The currently available *{example_name}* are given when entering a wrong *{example_name}*.
 
-List of available PoCs:
-- [empty] or *default* - imports all available PoCs
+List of available examples:
+- [empty] or *default* - imports all available examples
 - *keycloak*
 - *data_masking*
 - *context_routing*
-- *dynmic_routing*
+- *dynamic_routing*
 - *websocket*
 - *api_mashup*
 - *client_cert*
