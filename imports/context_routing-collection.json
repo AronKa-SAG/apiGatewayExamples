@@ -39,7 +39,7 @@
 				"body": {
 					"mode": "file",
 					"file": {
-						"src": "/C:/Users/y508854/OneDrive - Software AG/Documents/API Gateway Resources/Docker Gateway/imports/POC test users.zip"
+						"src": "./imports/POC test users.zip"
 					}
 				},
 				"url": {
@@ -102,7 +102,7 @@
 				"body": {
 					"mode": "file",
 					"file": {
-						"src": "/C:/Users/y508854/OneDrive - Software AG/Documents/API Gateway Resources/Docker Gateway/imports/POC Conditional Routing.zip"
+						"src": "./imports/POC Conditional Routing.zip"
 					}
 				},
 				"url": {

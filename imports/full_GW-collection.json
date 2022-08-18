@@ -42,7 +42,7 @@
 						"body": {
 							"mode": "file",
 							"file": {
-								"src": "/C:/Users/y508854/OneDrive - Software AG/Documents/API Gateway Resources/Docker Gateway/imports/keycloak/settings_authServer.zip"
+								"src": "./imports/keycloak/settings_authServer.zip"
 							}
 						},
 						"url": {
@@ -105,7 +105,7 @@
 						"body": {
 							"mode": "file",
 							"file": {
-								"src": "/C:/Users/y508854/OneDrive - Software AG/Documents/API Gateway Resources/Docker Gateway/imports/keycloak/extendend_settings.zip"
+								"src": "./imports/keycloak/extendend_settings.zip"
 							}
 						},
 						"url": {
@@ -168,7 +168,7 @@
 						"body": {
 							"mode": "file",
 							"file": {
-								"src": "/C:/Users/y508854/OneDrive - Software AG/Documents/API Gateway Resources/Docker Gateway/imports/keycloak/scope_mapping.zip"
+								"src": "./imports/keycloak/scope_mapping.zip"
 							}
 						},
 						"url": {
@@ -231,7 +231,7 @@
 						"body": {
 							"mode": "file",
 							"file": {
-								"src": "/C:/Users/y508854/OneDrive - Software AG/Documents/API Gateway Resources/Docker Gateway/imports/keycloak/API_Petstore.zip"
+								"src": "./imports/keycloak/API_Petstore.zip"
 							}
 						},
 						"url": {
@@ -412,7 +412,7 @@
 						"body": {
 							"mode": "file",
 							"file": {
-								"src": "/C:/Users/y508854/OneDrive - Software AG/Documents/API Gateway Resources/Docker Gateway/imports/PoC Websocket.zip"
+								"src": "./imports/PoC Websocket.zip"
 							}
 						},
 						"url": {
@@ -548,7 +548,7 @@
 						"body": {
 							"mode": "file",
 							"file": {
-								"src": "/C:/Users/y508854/OneDrive - Software AG/Documents/API Gateway Resources/Docker Gateway/imports/POC Conditional Routing.zip"
+								"src": "./imports/POC Conditional Routing.zip"
 							}
 						},
 						"url": {
@@ -616,7 +616,7 @@
 						"body": {
 							"mode": "file",
 							"file": {
-								"src": "/C:/Users/y508854/OneDrive - Software AG/Documents/API Gateway Resources/Docker Gateway/imports/POC Dynamic Routing.zip"
+								"src": "./imports/POC Dynamic Routing.zip"
 							}
 						},
 						"url": {
@@ -684,7 +684,7 @@
 						"body": {
 							"mode": "file",
 							"file": {
-								"src": "/C:/Users/y508854/OneDrive - Software AG/Documents/API Gateway Resources/Docker Gateway/imports/POC Mashup.zip"
+								"src": "./imports/POC Mashup.zip"
 							}
 						},
 						"url": {
@@ -749,7 +749,7 @@
 				"body": {
 					"mode": "file",
 					"file": {
-						"src": "/C:/Users/y508854/OneDrive - Software AG/Documents/API Gateway Resources/Docker Gateway/imports/POC test users.zip"
+						"src": "./imports/POC test users.zip"
 					}
 				},
 				"url": {

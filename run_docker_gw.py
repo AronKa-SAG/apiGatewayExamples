@@ -1,4 +1,5 @@
 from os import system
+import os
 import subprocess
 import sys
 import time
@@ -45,9 +46,14 @@ max_iterations = 10
 iterations = 0
 sleep_s = 20
 health_check = "http://localhost:5555/rest/apigateway/health"
-location = 'C:/Users/y508854/AppData/Roaming/npm/newman'
+
+location = os.getenv('APPDATA')+'\\npm'
+print(f"{location}, {key}")
+if not os.path.exists(location):
+    raise FileNotFoundError("newman was not installed! Please follow the install-instruction.")
+    
 # docker_location = 'C:/Users/y508854/OneDrive - Software AG/Documents/API Gateway Resources/Docker Gateway'
-docker_run = 'docker compose up -d'
+docker_run = 'docker-compose up -d'
 header = {
     "Accept": "application/json"
 }
@@ -74,7 +80,7 @@ while(iterations < max_iterations):
     
 if healthy_gw:
     print(f"Starting API GW imports using {key} collection")
-    return_code = subprocess.call(location + f" run {poc_dict.get(key)}", shell=True)
+    return_code = subprocess.call(f"{location}\\newman.cmd run {poc_dict.get(key)}", shell=True)
     # return_code = subprocess.call(f"echo newman run {poc_dict.get(key)}", shell=True)
     print(return_code)
 else:
