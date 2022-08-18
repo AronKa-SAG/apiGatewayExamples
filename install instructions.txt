@@ -26,3 +26,5 @@ Setup:
 2. Setup external AS in GW with authServer.zip
 
 for rnd images: https://dtr:4443/
+
+if 'import requests' in pythonscript doesn't work execute command 'pip install requests'

@@ -67,7 +67,7 @@
 						{
 							"key": "fileContent",
 							"type": "file",
-							"src": "/C:/Users/y508854/OneDrive - Software AG/Documents/API Gateway Resources/Docker Gateway/imports/client_cert/client_certificate_docker.jks"
+							"src": "./imports/client_cert/client_certificate_docker.jks"
 						},
 						{
 							"key": "isPwdBase64Encoded",
@@ -132,7 +132,7 @@
 				"body": {
 					"mode": "file",
 					"file": {
-						"src": "/C:/Users/y508854/OneDrive - Software AG/Documents/API Gateway Resources/Docker Gateway/imports/client_cert/ClientCertificate_PoC.zip"
+						"src": "./imports/client_cert/ClientCertificate_PoC.zip"
 					}
 				},
 				"url": {
