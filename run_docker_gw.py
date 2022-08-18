@@ -53,7 +53,7 @@ if not os.path.exists(location):
     raise FileNotFoundError("newman was not installed! Please follow the install-instruction.")
     
 # docker_location = 'C:/Users/y508854/OneDrive - Software AG/Documents/API Gateway Resources/Docker Gateway'
-docker_run = 'docker-compose up -d'
+docker_run = 'docker compose up -d'
 header = {
     "Accept": "application/json"
 }
