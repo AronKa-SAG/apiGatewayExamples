@@ -60,7 +60,7 @@ The repo can be used by running the [docker-compose file](docker-compose.yml) vi
 This will create API Gateway and wS IS.
 
 To run API Gateway execute the following on your terminal:
-><code>docker run -d -p 5555:5555 -p 9072:9072 --hostname apigw-host --name apigw store/softwareag/apigateway-trial:*{versionnumber}*</code>
+><code style="color:black;background:orange">docker run -d -p 5555:5555 -p 9072:9072 --hostname apigw-host --name apigw store/softwareag/apigateway-trial:*{versionnumber}*</code>
 
 Should you have changed the YML-file just change the ports to the right ones.
 
