@@ -62,7 +62,7 @@ This will create API Gateway and wS IS.
 To run API Gateway execute the following on your terminal:
 ><code>docker run -d -p 5555:5555 -p 9072:9072 --hostname apigw-host --name apigw store/softwareag/apigateway-trial:*{versionnumber}*</code>
 
-<p style='text-align:center;width:100%;background:orange;color:black;font-weight:bold;padding:3px'>&uarr; Modify this! &uarr;</p>
+<b>&uarr; Modify this! &uarr;</b>
 
 Should you have changed the YML-file just change the ports to the right ones.
 
