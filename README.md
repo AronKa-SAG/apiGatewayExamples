@@ -30,13 +30,13 @@ First of all create a docker account and subscribe to [SAG API Gateway](https://
 
 ### Python
 Install Python via Company Portal or download it [here](https://www.python.org/downloads/).
-At setup check the box <code>install to PATH</code>. Elsewise you won't be able to call python via commandprompt.
+At setup check the box <b>install to PATH</b>. Elsewise you won't be able to call python via commandprompt.
 
 ### npm
 Install Node.js via Company Portal or download it [here](https://nodejs.org/en/download/). Make sure you leave everything at setup as default.
 
 ### newman
-It is required that you have already installed npm. To check press <code>WIN+R</code> and type <code>%appdata%</code> and hit <code>ENTER</code>. Check if directory <code>npm</code> exists.<br>
+It is required that you have already installed npm. To check type <code>npm -v</code> in commandline.
 Now install newman via commandline: <br>
 ><code>npm install -g newman</code>
 
@@ -53,7 +53,7 @@ The last step is to copy the command under **Docker Pull Command** and paste and
 ## Usage
 
 ### Setup
-To run API Gateway run the following on your terminal:
+To run API Gateway execute the following on your terminal:
 ><code>docker run -d -p 5555:5555 -p 9072:9072 --hostname apigw-host --name apigw store/softwareag/apigateway-trial:*{versionnumber}*</code>
 
 The repo can be used by running the [docker-compose file](docker-compose.yml) via commandline:
@@ -62,7 +62,7 @@ The repo can be used by running the [docker-compose file](docker-compose.yml) vi
 Once Docker is started and you pulled the corresponding images, you can run the [run_docker_gw.py](run_docker_gw.py) file using the following syntax:<br>
 ><code>python run_docker_gw.py *{example_name}*</code>
 
-If 'import requests' in pythonsript *run_docker_gw.py* doesn't work execute the command 'pip install requests'.
+If 'import requests' in pythonsript *run_docker_gw.py* doesn't work execute the command <code>pip install requests</code>.
 
 <br>The currently available *{example_name}* are given when entering a wrong *{example_name}*.
 
