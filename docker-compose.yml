@@ -20,6 +20,20 @@ services:
         # Needs to be the same network for all containers.
         networks:
           - api-gateway-network
+    keycloak:
+        image: jboss/keycloak
+        container_name: keycloak
+        volumes:
+            - ./imports/keycloak:/opt/jboss/keycloak/imports
+        environment:
+            - KEYCLOAK_USER=admin
+            - KEYCLOAK_PASSWORD=manage
+            - KEYCLOAK_IMPORT=/opt/jboss/keycloak/imports/keycloak_realm_export.json 
+            - JDBC_PARAMS='connectTimeout=30'
+        ports:
+            - 8080:8080
+        networks:
+            - api-gateway-network
           
 networks:
   api-gateway-network:

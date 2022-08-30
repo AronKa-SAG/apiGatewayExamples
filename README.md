@@ -9,7 +9,6 @@
     - [npm](#npm)
     - [newman](#newman)
     - [Gateway](#gateway)
-    - [Keycloak](#keycloak)
   - [Usage](#usage)
     - [Setup](#setup)
     - [Accessing via localhost](#accessing-via-localhost)
@@ -50,9 +49,6 @@ To login to docker open a terminal and paste and execute the command. The comman
 
 The last step is to copy the command under **Docker Pull Command** and paste and execute it in the terminal. This looks something like this:
 ><code>docker pull sagcr.azurecr.io/apigateway:*{versionnumber}*</code>
-
-### Keycloak
-Install keycloak using the '<code>docker run</code>'-command on their [website](https://www.keycloak.org/getting-started/getting-started-docker).
 
 ## Usage
 

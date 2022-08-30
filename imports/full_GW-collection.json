@@ -512,10 +512,10 @@
 			]
 		},
 		{
-			"name": "Context Routing",
+			"name": "Conditional Routing",
 			"item": [
 				{
-					"name": "Import Context Routing API",
+					"name": "Import Conditional Routing API",
 					"protocolProfileBehavior": {
 						"disabledSystemHeaders": {
 							"accept": true
