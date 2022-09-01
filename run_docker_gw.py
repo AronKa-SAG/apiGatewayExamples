@@ -4,7 +4,6 @@ import subprocess
 import sys
 import time
 import requests
-import json
 
 
 # dict for PoC demos
@@ -26,7 +25,6 @@ poc_dict = {
     "client_cert": "imports/client_cert-collection.json",
     "ssl": "imports/client_cert-collection.json",
     "certificate": "imports/client_cert-collection.json",
-    "users": "imports/users-collection.json" # Gibt es nicht
 }
 
 # input args to choose demo
