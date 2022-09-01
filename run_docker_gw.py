@@ -80,8 +80,8 @@ while(iterations < max_iterations):
     
 if healthy_gw:
     print(f"Starting API GW imports using {key} collection")
+    subprocess.call(f"{location}\\newman.cmd run importUsers.json", shell=True)
     return_code = subprocess.call(f"{location}\\newman.cmd run {poc_dict.get(key)}", shell=True)
-    # return_code = subprocess.call(f"echo newman run {poc_dict.get(key)}", shell=True)
     print(return_code)
 else:
     raise ConnectionError(f"Couldn't connect to API Gateway in {max_iterations} tries. Terminating...")
