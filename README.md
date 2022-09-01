@@ -76,7 +76,7 @@ List of available examples:
 - [empty] or *default* - imports all available examples
 - *keycloak*
 - *data_masking*
-- *context_routing*
+- *conditional_routing*
 - *dynamic_routing*
 - *websocket*
 - *api_mashup*
