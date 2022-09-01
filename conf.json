@@ -1,0 +1,161 @@
+{
+	"info": {
+		"_postman_id": "f9251adc-3ba6-4240-b357-1a4fb687e6b3",
+		"name": "Configuration",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21920057"
+	},
+	"item": [
+		{
+			"name": "configureLoadbalancer",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "manage",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "Administrator",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"httpUrls\": [\r\n    \"http://localhost:5555\"\r\n  ],\r\n  \"httpsUrls\": [],\r\n  \"webAppUrl\": null,\r\n  \"websocketUrls\": []\r\n}"
+				},
+				"url": {
+					"raw": "localhost:5555/rest/apigateway/configurations/loadBalancer",
+					"host": [
+						"localhost"
+					],
+					"port": "5555",
+					"path": [
+						"rest",
+						"apigateway",
+						"configurations",
+						"loadBalancer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createUser",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "Administrator",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "manage",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"loginId\": \"tester\",\r\n    \"firstName\": \"tester\",\r\n    \"language\": \"\",\r\n    \"password\": \"manage\",\r\n    \"type\": \"local\",\r\n    \"allowDigestAuth\": false,\r\n    \"active\": true,\r\n    \"systemDefined\": false,\r\n    \"emailAddresses\": []\r\n}"
+				},
+				"url": {
+					"raw": "localhost:5555/rest/apigateway/users",
+					"host": [
+						"localhost"
+					],
+					"port": "5555",
+					"path": [
+						"rest",
+						"apigateway",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createUser1",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "Administrator",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "manage",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"loginId\": \"tester2\",\r\n    \"firstName\": \"tester\",\r\n    \"language\": \"\",\r\n    \"password\": \"manage\",\r\n    \"type\": \"local\",\r\n    \"allowDigestAuth\": false,\r\n    \"active\": true,\r\n    \"systemDefined\": false,\r\n    \"emailAddresses\": []\r\n}"
+				},
+				"url": {
+					"raw": "localhost:5555/rest/apigateway/users",
+					"host": [
+						"localhost"
+					],
+					"port": "5555",
+					"path": [
+						"rest",
+						"apigateway",
+						"users"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

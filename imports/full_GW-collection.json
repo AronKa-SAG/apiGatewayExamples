@@ -480,7 +480,7 @@
 						"body": {
 							"mode": "file",
 							"file": {
-								"src": "/C:/Users/y508854/OneDrive - Software AG/Documents/API Gateway Resources/GW PoCs - Exports/POC Data Masking.zip"
+								"src": "./imports/POC Data Masking.zip"
 							}
 						},
 						"url": {

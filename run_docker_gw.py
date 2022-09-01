@@ -4,6 +4,7 @@ import subprocess
 import sys
 import time
 import requests
+import json
 
 
 # dict for PoC demos
@@ -60,7 +61,6 @@ header = {
 
 print("starting API GW via docker compose...")
 return_code = subprocess.call(f"{docker_run}", shell=True)
-print(return_code)
 
 while(iterations < max_iterations):
     try:
@@ -80,8 +80,10 @@ while(iterations < max_iterations):
     
 if healthy_gw:
     print(f"Starting API GW imports using {key} collection")
-    addUsers = subprocess.call(f"{location}\\newman.cmd run imports\importUsers.json", shell=True)
-    return_code = subprocess.call(f"{location}\\newman.cmd run {poc_dict.get(key)}", shell=True)
-    print(return_code)
+    if not os.path.exists(os.getenv('TEMP')+"/conf_apigw.log"):
+        subprocess.call(f"{location}/newman run conf.json", shell=True)
+        with open(os.getenv('TEMP')+"/conf_apigw.log", 'w') as f:
+            f.write(f"Configuration on {time.asctime(time.localtime(time.time()))} was successful!")
+    subprocess.call(f"{location}\\newman.cmd run {poc_dict.get(key)}", shell=True)
 else:
     raise ConnectionError(f"Couldn't connect to API Gateway in {max_iterations} tries. Terminating...")
