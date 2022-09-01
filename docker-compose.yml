@@ -2,7 +2,7 @@
 # The image name of API Gateway can be set by modifying the .env file when the file is in the working directory or by setting the environment variable APIGW_DOCKER_IMAGE_NAME.
 # To use this file run: docker compose up -d
 # To stop and remove containers, networks, volumes and images created by up run: docker compose down
-version: '3.5'
+version: '3.5'  # By Aron Kaufmann
 services:
     apigateway-1:
         image: sagcr.azurecr.io/apigateway:10.11
@@ -20,6 +20,7 @@ services:
         # Needs to be the same network for all containers.
         networks:
           - api-gateway-network
+
     keycloak:
         image: jboss/keycloak
         container_name: keycloak
