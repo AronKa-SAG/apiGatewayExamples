@@ -1,29 +1,25 @@
 {
 	"info": {
-		"_postman_id": "5946656e-2f1b-4494-a2f7-18e5aece7ba5",
-		"name": "Conditional Routing Collection",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"_postman_id": "10294e40-937e-4865-91f5-7d251d0d44ae",
+		"name": "Request Transformation",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21920057"
 	},
 	"item": [
 		{
-			"name": "Import Conditional Routing API",
-			"protocolProfileBehavior": {
-				"disabledSystemHeaders": {
-					"accept": true
-				}
-			},
+			"name": "Import Request Transformation",
 			"request": {
 				"auth": {
 					"type": "basic",
 					"basic": [
 						{
-							"key": "password",
-							"value": "manage",
+							"key": "username",
+							"value": "Administrator",
 							"type": "string"
 						},
 						{
-							"key": "username",
-							"value": "Administrator",
+							"key": "password",
+							"value": "manage",
 							"type": "string"
 						}
 					]
@@ -39,7 +35,7 @@
 				"body": {
 					"mode": "file",
 					"file": {
-						"src": "./imports/POC Conditional Routing.zip"
+						"src": "/C:/Users/jonl/apiGatewayExamples/imports/POC Request Transformation.zip"
 					}
 				},
 				"url": {

@@ -412,7 +412,7 @@
 						"body": {
 							"mode": "file",
 							"file": {
-								"src": "./imports/PoC Websocket.zip"
+								"src": "./imports/POC Websocket.zip"
 							}
 						},
 						"url": {
@@ -716,24 +716,19 @@
 			]
 		},
 		{
-			"name": "Import Test Users",
-			"protocolProfileBehavior": {
-				"disabledSystemHeaders": {
-					"accept": true
-				}
-			},
+			"name": "Import Request Transformation",
 			"request": {
 				"auth": {
 					"type": "basic",
 					"basic": [
 						{
-							"key": "password",
-							"value": "manage",
+							"key": "username",
+							"value": "Administrator",
 							"type": "string"
 						},
 						{
-							"key": "username",
-							"value": "Administrator",
+							"key": "password",
+							"value": "manage",
 							"type": "string"
 						}
 					]
@@ -749,7 +744,7 @@
 				"body": {
 					"mode": "file",
 					"file": {
-						"src": "./imports/POC test users.zip"
+						"src": "/C:/Users/jonl/apiGatewayExamples/imports/POC Request Transformation.zip"
 					}
 				},
 				"url": {

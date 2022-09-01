@@ -152,7 +152,7 @@
 				"body": {
 					"mode": "file",
 					"file": {
-						"src": "./imports/PoC Websocket.zip"
+						"src": "./imports/POC Websocket.zip"
 					}
 				},
 				"url": {

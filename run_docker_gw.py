@@ -10,14 +10,13 @@ import json
 # dict for PoC demos
 poc_dict = {
     "default": "imports/full_GW-collection.json",
-    "full": "imports/full_GW-collection.json",
     "keycloak": "imports/keycloak-collection.json",
     "oauth": "imports/keycloak-collection.json",
     "external_as": "imports/keycloak-collection.json",
     "data_masking": "imports/data_masking-collection.json",
     "datamasking": "imports/data_masking-collection.json",
-    "context_routing": "imports/context_routing-collection.json",
-    "contextrouting": "imports/context_routing-collection.json",
+    "conditional_routing": "imports/conditional_routing-collection.json",
+    "conditionalrouting": "imports/conditional_routing-collection.json",
     "dynamic_routing": "imports/dynamic_routing-collection.json",
     "dynamicrouting": "imports/dynamic_routing-collection.json",
     "websocket": "imports/websocket-collection.json",
@@ -27,7 +26,7 @@ poc_dict = {
     "client_cert": "imports/client_cert-collection.json",
     "ssl": "imports/client_cert-collection.json",
     "certificate": "imports/client_cert-collection.json",
-    "users": "imports/users-collection.json"
+    "users": "imports/users-collection.json" # Gibt es nicht
 }
 
 # input args to choose demo
