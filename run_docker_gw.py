@@ -80,7 +80,7 @@ while(iterations < max_iterations):
     
 if healthy_gw:
     print(f"Starting API GW imports using {key} collection")
-    subprocess.call(f"{location}\\newman.cmd run importUsers.json", shell=True)
+    addUsers = subprocess.call(f"{location}\\newman.cmd run imports\importUsers.json", shell=True)
     return_code = subprocess.call(f"{location}\\newman.cmd run {poc_dict.get(key)}", shell=True)
     print(return_code)
 else:
