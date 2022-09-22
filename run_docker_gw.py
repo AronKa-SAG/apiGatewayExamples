@@ -39,11 +39,14 @@ else:
     # get all files in imports folder for big demo
     key = "default"
 
+base = "http://localhost:5555/rest/apigateway"
+health_check = f"{base}/health"
+loadbalancer = f"{base}/configurations/loadBalancer"
+auth =("Administrator","manage")
 healthy_gw = False
 max_iterations = 10
 iterations = 0
 sleep_s = 20
-health_check = "http://localhost:5555/rest/apigateway/health"
 
 location = os.getenv('APPDATA')+'\\npm'
 print(f"{location}, {key}")
@@ -77,7 +80,9 @@ while(iterations < max_iterations):
     
 if healthy_gw:
     print(f"Starting API GW imports using {key} collection")
-    if not os.path.exists(os.getenv('TEMP')+"/conf_apigw.log"):
+    
+    r = requests.get(url = loadbalancer, headers=header, auth=auth)
+    if int(len(r.json()["httpUrls"])) == 0:
         subprocess.call(f"{location}/newman run conf.json", shell=True)
         with open(os.getenv('TEMP')+"/conf_apigw.log", 'w') as f:
             f.write(f"Configuration on {time.asctime(time.localtime(time.time()))} was successful!")
