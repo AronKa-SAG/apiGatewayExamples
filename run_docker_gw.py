@@ -66,7 +66,7 @@ header = {
 }
 
 print("starting API GW via docker compose...")
-return_code = subprocess.call(f"{docker_run}", shell=True)
+# return_code = subprocess.call(f"{docker_run}", shell=True)
 
 while(iterations < max_iterations):
     try:
@@ -87,9 +87,9 @@ while(iterations < max_iterations):
 if healthy_gw:
     print(f"Starting API GW imports using {key} collection")
     
-    r = requests.get(url = loadbalancer, headers=header, auth=auth)
+    r = requests.get(url = loadbalancer, headers = header, auth = auth)
     if int(len(r.json()["httpUrls"])) == 0:
         subprocess.call(f"{location}/newman run conf.json", shell=True)
-    subprocess.call(f"{location}\\newman.cmd run {poc_dict.get(key)}", shell=True)
+    subprocess.call(f"{location}/newman run {poc_dict.get(key)}", shell=True)
 else:
     raise ConnectionError(f"Couldn't connect to API Gateway in {max_iterations} tries. Terminating...")
