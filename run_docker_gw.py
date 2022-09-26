@@ -28,13 +28,20 @@ poc_dict = {
 }
 
 # input args to choose demo
+options = list(poc_dict.keys())
+
 if len(sys.argv) > 2:
     raise KeyError("Too many arguments given via commandline!")
 elif len(sys.argv) == 2:
-    if sys.argv[1] in list(poc_dict.keys()):
+    if sys.argv[1] in options:
         key = sys.argv[1]
     else:
-        raise KeyError(f"As parameter use one of {list(poc_dict.keys())}")   
+        key = 0
+        for i in options:
+            print(f"-\t{i}")
+        while key not in options:
+            key = input("Insert one of the options above")
+        # raise KeyError(f"As parameter use one of {list(poc_dict.keys())}")   
 else:
     # get all files in imports folder for big demo
     key = "default"
