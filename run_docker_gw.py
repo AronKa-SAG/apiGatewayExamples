@@ -40,8 +40,7 @@ elif len(sys.argv) == 2:
         for i in options:
             print(f"-\t{i}")
         while key not in options:
-            key = input("Insert one of the options above")
-        # raise KeyError(f"As parameter use one of {list(poc_dict.keys())}")   
+            key = input("Insert one of the options above: ")
 else:
     # get all files in imports folder for big demo
     key = "default"
