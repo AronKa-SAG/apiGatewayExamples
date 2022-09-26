@@ -90,8 +90,6 @@ if healthy_gw:
     r = requests.get(url = loadbalancer, headers=header, auth=auth)
     if int(len(r.json()["httpUrls"])) == 0:
         subprocess.call(f"{location}/newman run conf.json", shell=True)
-        with open(os.getenv('TEMP')+"/conf_apigw.log", 'w') as f:
-            f.write(f"Configuration on {time.asctime(time.localtime(time.time()))} was successful!")
     subprocess.call(f"{location}\\newman.cmd run {poc_dict.get(key)}", shell=True)
 else:
     raise ConnectionError(f"Couldn't connect to API Gateway in {max_iterations} tries. Terminating...")
