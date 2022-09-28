@@ -65,8 +65,10 @@ header = {
     "Accept": "application/json"
 }
 
-print("starting API GW via docker compose...")
-# return_code = subprocess.call(f"{docker_run}", shell=True)
+x = input("Do you want to compose API Gateway? (by default 'n') [y/n]\n> ").lower()
+if x=="y" or "yes" or x=="j":
+    print("starting API GW via docker compose...")
+    return_code = subprocess.call(f"{docker_run}", shell=True)
 
 while(iterations < max_iterations):
     try:
