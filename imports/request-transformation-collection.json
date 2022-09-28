@@ -35,7 +35,7 @@
 				"body": {
 					"mode": "file",
 					"file": {
-						"src": "/C:/Users/jonl/apiGatewayExamples/imports/POC Request Transformation.zip"
+						"src": "/./imports/POC Request Transformation.zip"
 					}
 				},
 				"url": {
