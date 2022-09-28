@@ -23,8 +23,8 @@ Choose the right docker-container and copy the containerID.
 
 ## API Gateway: Settings
 Go to API Gateway and log in via Administrator/manage.
-Now go to the Administratorpage, open securitytab and click **Add truststore**. There you just need to give your truststore a name and import the **myTruststore.jks**-file. 
+Now go to the administratorpage, open securitytab and click **Add truststore**. There you just need to give your truststore a name and import the **myTruststore.jks**-file. 
 
-Next open the Ports-tab and click on Port 5543. There collapse the **Listener specific credentials** and selecdt myTruststore for truststore.
+Next open the ports-tab and click on port 5543. There open the **Listener specific credentials** and select myTruststore for truststore. If not yet done: enable port 5543!
 
 ## POSTMAN
