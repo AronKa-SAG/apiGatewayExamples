@@ -8,7 +8,7 @@
 
 > <code>keytool -genkey -alias client -keyalg RSA -keypass manage -storepass manage -keysize 2048 -keystore clientkeystore.p12 -storetype PKCS12</code>
 
-> <code>keystore -export -keystore clientkeystore.p12 -alias client -file client.crt</code>
+> <code>keytool -export -keystore clientkeystore.p12 -alias client -file client.crt</code>
 
 > <code>keytool -genkey -alias server -keyalg RSA -keypass manage -storepass manage -keysize 2048 -keystore myTruststore.p12 -storetype PKCS12</code>
 
