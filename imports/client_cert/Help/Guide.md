@@ -10,16 +10,16 @@
 
 > <code>keystore -export -keystore clientkeystore.p12 -alias client -file client.crt</code>
 
-> <code>keytool -genkey -alias server -keyalg RSA -keypass manage -storepass manage -keysize 2048 -keysotre myTruststore.p12 -storetype PKCS12</code>
+> <code>keytool -genkey -alias server -keyalg RSA -keypass manage -storepass manage -keysize 2048 -keystore myTruststore.p12 -storetype PKCS12</code>
 
 > <code>keytool -import -keystore myTruststore.p12 -alias client -file client.crt</code>
 
 ### 3. Copy myTruststore.p12 to local machine:
 > <code>docker ps</code>
 
-    Choose the right docker-container and copy the containerID.
+Choose the right docker-container and copy the containerID.
 
-> <code>docker cp *containerID:filepath pathOnLocalMachine*</code>
+> <code>docker cp *containerID*:/opt/softwareag/jvm/jvm/bin/*filename* *pathOnLocalMachine*</code>
 
 ## API Gateway: Settings
 Go to API Gateway and log in via Administrator/manage.
