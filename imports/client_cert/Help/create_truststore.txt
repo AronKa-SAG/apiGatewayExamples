@@ -1,0 +1,13 @@
+1. Get access to docker container:
+docker exec -it name /bin/bash
+
+2. Create keystore.jks:
+cd /opt/softwareag/jvm/jvm/bin
+keytool -genkey -alias client -keyalg RSA -keypass manage -storepass manage -keysize 2048 -keystore clientkeystore.p12 -storetype PKCS12
+keystore -export -keystore clientkeystore.p12 -alias client -file client.crt
+keytool -genkey -alias server -keyalg RSA -keypass manage -storepass manage -keysize 2048 -keysotre myTruststore.p12 -storetype PKCS12
+keytool -import -keystore myTruststore.p12 -alias client -file client.crt
+
+3. Copy keystore.jks to local machine:
+exit
+docker cp containerID:filepath pathOnLocalMachine
