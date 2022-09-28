@@ -1,8 +1,9 @@
 {
 	"info": {
-		"_postman_id": "aa876cdf-dc40-4d93-92c0-689d13dd23a7",
+		"_postman_id": "a6f52e63-cebf-4899-95a9-89492d0bfc97",
 		"name": "SSL Certificate Authentication",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21920057"
 	},
 	"item": [
 		{
@@ -36,7 +37,7 @@
 					"formdata": [
 						{
 							"key": "uploadFileName",
-							"value": "client_certificate_docker.jks",
+							"value": "myTruststore.jks",
 							"type": "text"
 						},
 						{
@@ -51,32 +52,27 @@
 						},
 						{
 							"key": "keyStorePassword",
-							"value": "MRCZ4Uqd2X3b3wx1",
+							"value": "manage",
 							"type": "text"
 						},
 						{
 							"key": "keyStoreName",
-							"value": "client_certificate_docker",
+							"value": "myTruststore",
 							"type": "text"
 						},
 						{
 							"key": "keyStoreDescription",
-							"value": "client certificate for ssl poc in docker",
+							"value": "client certificate for ssl poc verification",
 							"type": "text"
 						},
 						{
 							"key": "fileContent",
 							"type": "file",
-							"src": "./imports/client_cert/client_certificate_docker.jks"
+							"src": "/C:/Users/jonl/apiGatewayExamples/apiGatewayExamples/imports/client_cert/myTruststore.jks"
 						},
 						{
 							"key": "isPwdBase64Encoded",
-							"value": "true",
-							"type": "text"
-						},
-						{
-							"key": "keyStorePassword",
-							"value": "TVJDWjRVcWQyWDNiM3d4MQ==",
+							"value": "false",
 							"type": "text"
 						}
 					]
@@ -132,7 +128,7 @@
 				"body": {
 					"mode": "file",
 					"file": {
-						"src": "./imports/client_cert/ClientCertificate_PoC.zip"
+						"src": "/C:/Users/jonl/apiGatewayExamples/apiGatewayExamples/imports/POC Client Certificate.zip"
 					}
 				},
 				"url": {
@@ -251,7 +247,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"factoryKey\": \"webMethods/HTTP\",\r\n    \"listenerKey\": \"HTTPSListener@5543\",\r\n    \"oldPkg\": \"WmRoot\",\r\n    \"listenerType\": \"Regular\",\r\n    \"ssl\": \"true\",\r\n    \"certChain\": \"\",\r\n    \"enable\": \"yes\",\r\n    \"port\": 5543,\r\n    \"portAlias\": \"DefaultSecure\",\r\n    \"portDescription\": \"Default HTTPS Port\",\r\n    \"pkg\": \"WmRoot\",\r\n    \"bindAddress\": null,\r\n    \"maxQueue\": \"65534\",\r\n    \"keepAliveTimeout\": \"20000\",\r\n    \"threadPool\": \"false\",\r\n    \"minThread\": null,\r\n    \"maxThread\": null,\r\n    \"threadPriority\": null,\r\n    \"curDelay\": null,\r\n    \"useJSSE\": \"yes\",\r\n    \"clientAuth\": \"request\",\r\n    \"idProvider\": \"salesforce.com\",\r\n    \"krbJaasContext\": null,\r\n    \"krbClientPrincipal\": null,\r\n    \"krbClientPassword\": null,\r\n    \"retype_krbClientPassword\": null,\r\n    \"krbServicePrincipalForm\": \"username\",\r\n    \"krbServicePrincipal\": null,\r\n    \"keyStore\": \"DEFAULT_IS_KEYSTORE\",\r\n    \"alias\": \"ssos\",\r\n    \"trustStore\": \"client_certificate_docker\"\r\n}",
+					"raw": "{\r\n    \"factoryKey\": \"webMethods/HTTP\",\r\n    \"listenerKey\": \"HTTPSListener@5543\",\r\n    \"oldPkg\": \"WmRoot\",\r\n    \"listenerType\": \"Regular\",\r\n    \"ssl\": \"true\",\r\n    \"certChain\": \"\",\r\n    \"enable\": \"yes\",\r\n    \"port\": 5543,\r\n    \"portAlias\": \"DefaultSecure\",\r\n    \"portDescription\": \"Default HTTPS Port\",\r\n    \"pkg\": \"WmRoot\",\r\n    \"bindAddress\": null,\r\n    \"maxQueue\": \"65534\",\r\n    \"keepAliveTimeout\": \"20000\",\r\n    \"threadPool\": \"false\",\r\n    \"minThread\": null,\r\n    \"maxThread\": null,\r\n    \"threadPriority\": null,\r\n    \"curDelay\": null,\r\n    \"useJSSE\": \"yes\",\r\n    \"clientAuth\": \"request\",\r\n    \"idProvider\": \"salesforce.com\",\r\n    \"krbJaasContext\": null,\r\n    \"krbClientPrincipal\": null,\r\n    \"krbClientPassword\": null,\r\n    \"retype_krbClientPassword\": null,\r\n    \"krbServicePrincipalForm\": \"username\",\r\n    \"krbServicePrincipal\": null,\r\n    \"keyStore\": \"DEFAULT_IS_KEYSTORE\",\r\n    \"alias\": \"ssos\",\r\n    \"trustStore\": \"myTruststore\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
