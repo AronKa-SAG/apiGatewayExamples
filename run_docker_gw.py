@@ -55,7 +55,6 @@ iterations = 0
 sleep_s = 20
 
 location = os.getenv('APPDATA')+'\\npm'
-print(f"{location}, {key}")
 if not os.path.exists(location):
     raise FileNotFoundError("newman was not installed! Please follow the install-instruction.")
     
