@@ -4,28 +4,29 @@ import subprocess
 import sys
 import time
 import requests
+import base64
 
+def collectionNameOf(file):
+    name = ""
+    partOfName = False
+    for c in file:
+        if c == ".":
+            partOfName = False
+        if partOfName:
+            name += c
+        if c == "-":
+            partOfName = True
+    return name
+
+
+poc_dict = {
+    "default":"collection-full_GW"
+}
 
 # dict for PoC demos
-poc_dict = {
-    "default": "imports/full_GW-collection.json",
-    "keycloak": "imports/keycloak-collection.json",
-    "oauth": "imports/keycloak-collection.json",
-    "external_as": "imports/keycloak-collection.json",
-    "data_masking": "imports/data_masking-collection.json",
-    "datamasking": "imports/data_masking-collection.json",
-    "conditional_routing": "imports/conditional_routing-collection.json",
-    "conditionalrouting": "imports/conditional_routing-collection.json",
-    "dynamic_routing": "imports/dynamic_routing-collection.json",
-    "dynamicrouting": "imports/dynamic_routing-collection.json",
-    "websocket": "imports/websocket-collection.json",
-    "ws": "imports/websocket-collection.json",
-    "api_mashup": "imports/mashup-collection.json",
-    "mashup": "imports/mashup-collection.json",
-    "client_cert": "imports/client_cert-collection.json",
-    "ssl": "imports/client_cert-collection.json",
-    "certificate": "imports/client_cert-collection.json",
-}
+for file in os.listdir("./imports"):
+    if "collection" in file:
+        poc_dict[collectionNameOf(file)] = file
 
 # input args to choose demo
 options = list(poc_dict.keys())
@@ -40,7 +41,7 @@ elif len(sys.argv) == 2:
         for i in options:
             print(f"-\t{i}")
         while key not in options:
-            key = input("Insert one of the options above: ")
+            key = input("Insert one of the options above:\n> ")
 else:
     # get all files in imports folder for big demo
     key = "default"
@@ -48,7 +49,7 @@ else:
 base = "http://localhost:5555/rest/apigateway"
 health_check = f"{base}/health"
 loadbalancer = f"{base}/configurations/loadBalancer"
-auth =("Administrator","manage")
+auth =("Administrator",base64.b64decode("bWFuYWdl").decode("utf-8"))
 healthy_gw = False
 max_iterations = 10
 iterations = 0
