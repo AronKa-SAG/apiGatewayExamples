@@ -12,13 +12,16 @@ Changes into the folder where the keytool is stored on the server.
 
 <code>keytool -genkey -alias client -keyalg RSA -keypass manage -storepass manage -keysize 2048 -keystore clientkeystore.p12 -storetype PKCS12</code>
 
-Generates a clientkeystore **clientkeystore.p12** with password **manage** 
+Generates a clientkeystore **clientkeystore.p12** with password **manage** .
+
 <code>keytool -export -keystore clientkeystore.p12 -alias client -file client.crt</code>
 
 Exports the certificate of **client** out of **clientkeystore.p12**.
+
 <code>keytool -genkey -alias server -keyalg RSA -keypass manage -storepass manage -keysize 2048 -keystore myTruststore.p12 -storetype PKCS12</code>
 
 Generates a truststore **myTruststore.p12** with the password **manage**.
+
 <code>keytool -import -keystore myTruststore.p12 -alias client -file client.crt</code>
 
 Imports the client-certificate into the truststore so that every call with the right certificate is trusted. 
