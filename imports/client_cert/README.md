@@ -34,7 +34,7 @@ Choose the right docker-container and copy the containerID.
 <code>docker cp *containerID*:/opt/softwareag/jvm/jvm/bin/*filename* *pathOnLocalMachine*</code>
 
 ### Alternatives:
-#### 1) You can use **KeyStore Explorer** instead but it is recommanded to understand the steps above.
+#### 1) You can use **KeyStore Explorer** instead but it is recommended to understand the steps above.
 #### 2) Use our run_docker_gw.py instead with the option client_cert.<br>
  <code>python run_docker_gw.py client_cert</code>
 
