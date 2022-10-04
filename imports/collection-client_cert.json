@@ -68,7 +68,7 @@
 						{
 							"key": "fileContent",
 							"type": "file",
-							"src": "/C:/Users/jonl/apiGatewayExamples/apiGatewayExamples/imports/client_cert/myTruststore.jks"
+							"src": "./imports/client_cert/myTruststore.jks"
 						},
 						{
 							"key": "isPwdBase64Encoded",
@@ -128,7 +128,7 @@
 				"body": {
 					"mode": "file",
 					"file": {
-						"src": "/C:/Users/jonl/apiGatewayExamples/apiGatewayExamples/imports/POC Client Certificate.zip"
+						"src": "./imports/POC Client Certificate.zip"
 					}
 				},
 				"url": {

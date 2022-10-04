@@ -79,8 +79,9 @@ List of available examples:
 - *conditional_routing*
 - *dynamic_routing*
 - *websocket*
-- *api_mashup*
+- *mashup*
 - *client_cert*
+- *request_transformation*
 
 ### Accessing via localhost
 If you didn't change any configurations in the YML-files, you can access the products on the following ports:
