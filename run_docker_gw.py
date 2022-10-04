@@ -1,10 +1,8 @@
-from os import system
 import os
 import subprocess
 import sys
 import time
 import requests
-import base64
 
 def collectionNameOf(file):
     name = ""
@@ -49,7 +47,7 @@ else:
 base = "http://localhost:5555/rest/apigateway"
 health_check = f"{base}/health"
 loadbalancer = f"{base}/configurations/loadBalancer"
-auth =("Administrator",base64.b64decode("bWFuYWdl").decode("utf-8"))
+auth =("Administrator","manage")
 healthy_gw = False
 max_iterations = 10
 iterations = 0
