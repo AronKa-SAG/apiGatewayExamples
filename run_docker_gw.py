@@ -6,7 +6,7 @@ import time
 import requests
 import base64
 
-def collectionNameOf(file):
+def nameOf(file):
     name = ""
     partOfName = False
     for c in file:
@@ -19,14 +19,12 @@ def collectionNameOf(file):
     return name
 
 
-poc_dict = {
-    "default":"collection-full_GW"
-}
+poc_dict = {}
 
 # dict for PoC demos
 for file in os.listdir("./imports"):
     if "collection" in file:
-        poc_dict[collectionNameOf(file)] = file
+        poc_dict[nameOf(file)] = f"./imports/{file}"
 
 # input args to choose demo
 options = list(poc_dict.keys())
@@ -40,11 +38,14 @@ elif len(sys.argv) == 2:
         key = 0
         for i in options:
             print(f"-\t{i}")
-        while key not in options:
+        print("-\tfull")
+        while key not in options and key != "full":
             key = input("Insert one of the options above:\n> ")
+            if key == "exit":
+                exit()
 else:
     # get all files in imports folder for big demo
-    key = "default"
+    key = "full"
 
 base = "http://localhost:5555/rest/apigateway"
 health_check = f"{base}/health"
@@ -92,6 +93,10 @@ if healthy_gw:
     r = requests.get(url = loadbalancer, headers = header, auth = auth)
     if int(len(r.json()["httpUrls"])) == 0:
         subprocess.call(f"{location}/newman run conf.json", shell=True)
-    subprocess.call(f"{location}/newman run {poc_dict.get(key)}", shell=True)
+    if key == "full":
+        for i in list(poc_dict.keys()):
+            subprocess.call(f"{location}/newman run {poc_dict.get(i)}", shell=True)
+    else:
+        subprocess.call(f"{location}/newman run {poc_dict.get(key)}", shell=True)
 else:
     raise ConnectionError(f"Couldn't connect to API Gateway in {max_iterations} tries. Terminating...")
