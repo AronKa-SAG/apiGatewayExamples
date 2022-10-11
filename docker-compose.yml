@@ -8,9 +8,9 @@ services:
         image: sagcr.azurecr.io/apigateway:10.11
         container_name: api-gateway-1011-1
         volumes:
-            - ./imports/licensefiles:/opt/licensefiles
+            - ./imports/licensefiles:/opt/softwareag/licensefiles
         environment:
-            - SAG_IS_LICENSE_FILE=/opt/licensefiles/APIGateway_107_license.xml
+            - SAG_IS_LICENSE_FILE=/opt/softwareag/licensefiles
         # Setting for exposing ports to the outside (external port:internal port).
         ports:
           - 5555:5555
