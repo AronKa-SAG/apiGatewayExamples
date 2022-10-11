@@ -21,7 +21,7 @@ poc_dict = {}
 
 # dict for PoC demos
 for file in os.listdir("./imports"):
-    if "collection" in file:
+    if "collection" in file and file.endswith('.json'):
         poc_dict[nameOf(file)] = f"./imports/{file}"
 
 # input args to choose demo
