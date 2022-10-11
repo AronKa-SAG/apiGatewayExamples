@@ -10,7 +10,7 @@ services:
         volumes:
             - ./imports/licensefiles:/opt/softwareag/licensefiles
         environment:
-            - SAG_IS_LICENSE_FILE=/opt/softwareag/licensefiles
+            - SAG_IS_LICENSE_FILE=/opt/softwareag/licensefiles/
         # Setting for exposing ports to the outside (external port:internal port).
         ports:
           - 5555:5555
