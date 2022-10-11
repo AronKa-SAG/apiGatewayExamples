@@ -195,7 +195,7 @@
 			"response": []
 		},
 		{
-			"name": "Import API Petstore",
+			"name": "Import OAuth2 API",
 			"protocolProfileBehavior": {
 				"disabledSystemHeaders": {
 					"accept": true
@@ -228,7 +228,7 @@
 				"body": {
 					"mode": "file",
 					"file": {
-						"src": "./imports/keycloak/API_Petstore.zip"
+						"src": "./imports/keycloak/POC OAuth2.zip"
 					}
 				},
 				"url": {
