@@ -1,8 +1,9 @@
 {
 	"info": {
-		"_postman_id": "b5bac79c-cd23-40d4-984d-0a37f8572e46",
+		"_postman_id": "746c0d54-ef81-4f5f-98e2-88558394fd2c",
 		"name": "Keycloak Collection",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21920057"
 	},
 	"item": [
 		{
@@ -40,132 +41,6 @@
 					"mode": "file",
 					"file": {
 						"src": "./imports/keycloak/settings_authServer.zip"
-					}
-				},
-				"url": {
-					"raw": "http://localhost:5555/rest/apigateway/archive?overwrite=*&fixingMissingVersions=false",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "5555",
-					"path": [
-						"rest",
-						"apigateway",
-						"archive"
-					],
-					"query": [
-						{
-							"key": "overwrite",
-							"value": "*"
-						},
-						{
-							"key": "fixingMissingVersions",
-							"value": "false"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Import Extended Settings",
-			"protocolProfileBehavior": {
-				"disabledSystemHeaders": {
-					"accept": true
-				}
-			},
-			"request": {
-				"auth": {
-					"type": "basic",
-					"basic": [
-						{
-							"key": "password",
-							"value": "manage",
-							"type": "string"
-						},
-						{
-							"key": "username",
-							"value": "Administrator",
-							"type": "string"
-						}
-					]
-				},
-				"method": "POST",
-				"header": [
-					{
-						"key": "Accept",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "file",
-					"file": {
-						"src": "./imports/keycloak/extendend_settings.zip"
-					}
-				},
-				"url": {
-					"raw": "http://localhost:5555/rest/apigateway/archive?overwrite=*&fixingMissingVersions=false",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "5555",
-					"path": [
-						"rest",
-						"apigateway",
-						"archive"
-					],
-					"query": [
-						{
-							"key": "overwrite",
-							"value": "*"
-						},
-						{
-							"key": "fixingMissingVersions",
-							"value": "false"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Import Scope Mapping",
-			"protocolProfileBehavior": {
-				"disabledSystemHeaders": {
-					"accept": true
-				}
-			},
-			"request": {
-				"auth": {
-					"type": "basic",
-					"basic": [
-						{
-							"key": "password",
-							"value": "manage",
-							"type": "string"
-						},
-						{
-							"key": "username",
-							"value": "Administrator",
-							"type": "string"
-						}
-					]
-				},
-				"method": "POST",
-				"header": [
-					{
-						"key": "Accept",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "file",
-					"file": {
-						"src": "./imports/keycloak/scope_mapping.zip"
 					}
 				},
 				"url": {
@@ -247,6 +122,69 @@
 						{
 							"key": "overwrite",
 							"value": "false"
+						},
+						{
+							"key": "fixingMissingVersions",
+							"value": "false"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Import Scope Mapping",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "manage",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "Administrator",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "file",
+					"file": {
+						"src": "./imports/keycloak/scope_mapping.zip"
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5555/rest/apigateway/archive?overwrite=*&fixingMissingVersions=false",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5555",
+					"path": [
+						"rest",
+						"apigateway",
+						"archive"
+					],
+					"query": [
+						{
+							"key": "overwrite",
+							"value": "*"
 						},
 						{
 							"key": "fixingMissingVersions",
