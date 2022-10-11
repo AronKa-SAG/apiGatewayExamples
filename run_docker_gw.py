@@ -37,7 +37,7 @@ elif len(sys.argv) == 2:
         for i in options:
             print(f"-\t{i}")
         print("-\tfull")
-        while key not in options and key != "full":
+        while not (key  in options or key == "full"):
             key = input("Insert one of the options above:\n> ")
             if key == "exit":
                 exit()
