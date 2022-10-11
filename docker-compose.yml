@@ -11,7 +11,6 @@ services:
             - ./imports/licensefiles:/opt/licensefiles
         environment:
             - SAG_IS_LICENSE_FILE=/opt/licensefiles/APIGateway_107_license.xml
-        command: cp /opt/licensefiles/axis2.xml /opt/softwareag/IntegrationServer/instances/default/config/wss
         # Setting for exposing ports to the outside (external port:internal port).
         ports:
           - 5555:5555

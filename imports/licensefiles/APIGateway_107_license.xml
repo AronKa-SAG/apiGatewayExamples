@@ -11,7 +11,7 @@
 <AutoCallHome>No</AutoCallHome>
 </Component>
 <Component Id="ProductInfo">
-<ExpirationDate>2022/10/31</ExpirationDate>
+<ExpirationDate>2023/10/31</ExpirationDate>
 <OS>win, SunOS, Linux, Linux S390, AIX, HP-UX, MacOS</OS>
 <ProductCode>YAIAA</ProductCode>
 <ProductID/>
