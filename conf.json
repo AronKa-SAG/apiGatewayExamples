@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "37257fb2-7571-4bbf-be11-033c56bd1125",
+		"_postman_id": "75a9a37e-9570-4b74-a2b3-9def84097d98",
 		"name": "Configuration",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "21920057"
@@ -39,7 +39,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"httpUrls\": [\r\n      \"http://localhost:5555\"\r\n  ],\r\n  \"httpsUrls\": [\r\n      \"https://localhost:5555\"\r\n  ],\r\n  \"webAppUrl\": null,\r\n  \"websocketUrls\": []\r\n}"
+					"raw": "{\r\n  \"httpUrls\": [\r\n      \"http://localhost:5555\"\r\n  ],\r\n  \"httpsUrls\": [\r\n      \"https://localhost:5555\"\r\n  ],\r\n  \"webAppUrl\": null,\r\n  \"websocketUrls\": [\"ws://localhost:5566\"]\r\n}"
 				},
 				"url": {
 					"raw": "localhost:5555/rest/apigateway/configurations/loadBalancer",
