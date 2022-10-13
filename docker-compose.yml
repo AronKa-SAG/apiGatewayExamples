@@ -9,8 +9,6 @@ services:
         container_name: api-gateway-1011-1
         volumes:
             - ./imports/licensefiles:/opt/softwareag/licensefiles
-        environment:
-            - SAG_IS_LICENSE_FILE=/opt/softwareag/licensefiles/APIGateway_107_license.xml
         # Setting for exposing ports to the outside (external port:internal port).
         ports:
           - 5555:5555
