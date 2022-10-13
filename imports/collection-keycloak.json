@@ -103,7 +103,7 @@
 				"body": {
 					"mode": "file",
 					"file": {
-						"src": "./imports/keycloak/POC OAuth2.zip"
+						"src": "./imports/POC OAuth2.zip"
 					}
 				},
 				"url": {
