@@ -1,4 +1,4 @@
-# This docker-compose file is an example for a setup with two API Gateway containers and a single Keycloak container.
+# This docker-compose file is an example for a setup with a single API Gateway container and a single Keycloak container.
 # The image name of API Gateway can be set by modifying the .env file when the file is in the working directory or by setting the environment variable APIGW_DOCKER_IMAGE_NAME.
 # To use this file run: docker compose up -d
 # To stop and remove containers, networks, volumes and images created by up run: docker compose down
