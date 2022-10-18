@@ -45,4 +45,4 @@ Now go to the administratorpage, open securitytab and click **Add truststore**. 
 Next open the ports-tab and click on port 5543. There open the **Listener specific credentials** and select myTruststore for truststore. If not yet done: enable port 5543!
 
 ## POSTMAN
-Go into **Settings>Certificates** and click on **Add Certificate**. We already prepared the right .pfx-file so just click on select file and in **./imports/client_cert** select the file **client.pfx**. Now you should be ready to go!
+Go into **Settings>Certificates** and click on **Add Certificate**. The **Host** is *localhost:5543*. We already prepared the right .pfx-file so just click on select file and in **./imports/client_cert** select the file **client.pfx**. Now you should be ready to go!

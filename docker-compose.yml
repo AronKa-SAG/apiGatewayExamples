@@ -19,7 +19,7 @@ services:
             - "keycloak:127.0.0.1"
         # Needs to be the same network for all containers.
         environment:
-            - SAG_IS_LICENSE_FILE=/opt/softwareag/licensefiles/licenseKey.xml
+            - SAG_IS_LICENSE_FILE=/opt/licensefiles/licenseKey.xml
         networks:
           - api-gateway-network
 
