@@ -9,8 +9,7 @@ services:
         container_name: api-gateway-1011-1
         volumes:
             - ./imports/licensefiles:/opt/licensefiles
-        command: 
-            - sysclt -w vm.max_map_count=262144
+        command: sysclt -w vm.max_map_count=262144
         # Setting for exposing ports to the outside (external port:internal port).
         ports:
           - 5555:5555
