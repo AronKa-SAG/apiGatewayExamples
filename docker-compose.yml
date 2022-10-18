@@ -18,9 +18,6 @@ services:
         # Needs to be the same network for all containers.
         environment:
             - SAG_IS_LICENSE_FILE=/opt/licensefiles/licenseKey.xml
-        command:
-            - chown sagadmin /opt/licensefiles/licenseKey.xml
-            - chmod 664 /opt/licensefiles/licenseKey.xml
         networks:
           - api-gateway-network
 
