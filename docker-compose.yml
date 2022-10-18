@@ -14,6 +14,7 @@ services:
           - 5555:5555
           - 5543:5543
           - 9072:9072
+          - 5566:5566
         # Needs to be the same network for all containers.
         networks:
           - api-gateway-network
