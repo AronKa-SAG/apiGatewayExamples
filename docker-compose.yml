@@ -15,8 +15,6 @@ services:
             - 5543:5543
             - 9072:9072
             - 5566:5566
-        extra_host:
-            - "keycloak:127.0.0.1"
         # Needs to be the same network for all containers.
         environment:
             - SAG_IS_LICENSE_FILE=/opt/licensefiles/licenseKey.xml
