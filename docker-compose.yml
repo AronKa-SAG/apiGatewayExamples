@@ -9,6 +9,9 @@ services:
         container_name: api-gateway-1011-1
         volumes:
             - ./imports/licensefiles:/opt/licensefiles
+        command:
+            - chown sagadmin licenseKey.xml
+            - chmod 664 licenseKey.xml
         # Setting for exposing ports to the outside (external port:internal port).
         ports:
           - 5555:5555
