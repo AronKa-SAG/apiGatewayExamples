@@ -491,7 +491,12 @@
         "createdDate" : 1622450564699,
         "secretData" : "{\"value\":\"WRwDrW+513o+aQm/+ZsCnqePx1cjDOYhNQRsTLffp74Xy32bvO5wLOz2b5sJmRsmT/1CGq+xaenrfXNJoG4d/w==\",\"salt\":\"xmUL2yeVwnm7C6nyuloEqw==\",\"additionalParameters\":{}}",
         "credentialData" : "{\"hashIterations\":27500,\"algorithm\":\"pbkdf2-sha256\",\"additionalParameters\":{}}"
-      } ]
+      } ],
+      "disableableCredentialTypes" : [ ],
+      "requiredActions" : [ ],
+      "realmRoles" : [ "default-roles-demo" ],
+      "notBefore" : 0,
+      "groups" : [ "/apiConsumers" ]
     }
   ],
   "scopeMappings": [
