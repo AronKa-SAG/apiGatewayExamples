@@ -703,7 +703,7 @@
       "enabled": true,
       "alwaysDisplayInConsole": false,
       "clientAuthenticatorType": "client-secret",
-      "secret": "**********",
+      "secret": "5K1o05IU94ovIohGETtKImRkQCvUrEOW",
       "redirectUris": [
         "http://redirect.dummy.org"
       ],
