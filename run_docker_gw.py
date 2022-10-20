@@ -97,5 +97,4 @@ if healthy_gw:
     else:
         subprocess.call(f"{location}/newman run {poc_dict.get(key)}", shell=True)
 else:
-    subprocess.call(f"wsl -d docker-desktop\nulimit -n 65536\nsysctl -w fs.file-max=200000\nsysctl -w vm.max_map_count=262144", shell=True)
     raise ConnectionError(f"Couldn't connect to API Gateway in {max_iterations} tries. Terminating...")
