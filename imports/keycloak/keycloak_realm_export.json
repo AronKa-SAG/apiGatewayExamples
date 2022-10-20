@@ -475,6 +475,23 @@
       ],
       "notBefore": 0,
       "groups": []
+    },
+    {
+      "id" : "3741a7c6-af46-4633-ab32-8f22a6b4c5c0",
+      "createdTimestamp" : 1622450556838,
+      "username" : "testuser1",
+      "enabled" : true,
+      "totp" : false,
+      "emailVerified" : false,
+      "firstName" : "Peter",
+      "lastName" : "Pan",
+      "credentials" : [ {
+        "id" : "e31c4829-ca8f-40d6-841f-48848e0155f3",
+        "type" : "password",
+        "createdDate" : 1622450564699,
+        "secretData" : "{\"value\":\"WRwDrW+513o+aQm/+ZsCnqePx1cjDOYhNQRsTLffp74Xy32bvO5wLOz2b5sJmRsmT/1CGq+xaenrfXNJoG4d/w==\",\"salt\":\"xmUL2yeVwnm7C6nyuloEqw==\",\"additionalParameters\":{}}",
+        "credentialData" : "{\"hashIterations\":27500,\"algorithm\":\"pbkdf2-sha256\",\"additionalParameters\":{}}"
+      } ]
     }
   ],
   "scopeMappings": [
