@@ -496,7 +496,7 @@
       "requiredActions" : [ ],
       "realmRoles" : [ "default-roles-demo" ],
       "notBefore" : 0,
-      "groups" : [ "/apiConsumers" ]
+      "groups" : [ "/apiConsumer" ]
     }
   ],
   "scopeMappings": [
