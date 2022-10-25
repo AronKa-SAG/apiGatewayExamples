@@ -8,7 +8,7 @@
     - [Python](#python)
     - [npm](#npm)
     - [newman](#newman)
-    - [Gateway](#gateway)
+    - [Gateway / Devportal](#gateway--devportal)
   - [Usage](#usage)
     - [Setup](#setup)
     - [Accessing via localhost](#accessing-via-localhost)
@@ -41,14 +41,18 @@ It is required that you have already installed npm. To check type <code>npm -v</
 Now install newman via commandline: <br>
 ><code>npm install -g newman</code>
 
-### Gateway
-To install gateway with docker open the following link: [Software AG API Gateways](https://containers.softwareag.com/products/apigateway).
+### Gateway / Devportal
+To install gateway or devportal with docker open the following link: [Software AG API Gateways](https://containers.softwareag.com/products/apigateway) or [Software AG Devportal](https://containers.softwareag.com/products/devportal).
 On the website check the box <b>I agree to the Software AG's Terms and conditions</b> and click **Get the pull command**. Now store the token password somewhere save. Copy the command under **Docker login** and press **Got it!**.
 To login to docker open a terminal and paste and execute the command. The command looks something like this:
 ><code>docker login *{Firstname}*-*{Lastname}*-sofwareag-com -p *{key}* sagcr.azurecr.io</code>
 
 The last step is to copy the command under **Docker Pull Command** and paste and execute it in the terminal. This looks something like this:
 ><code>docker pull sagcr.azurecr.io/apigateway:*{versionnumber}*</code>
+
+or
+
+><code>docker pull sagcr.azurecr.io/devportal:*{versionnumber}*</code>
 
 ## Usage
 

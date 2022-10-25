@@ -36,6 +36,14 @@ services:
         networks:
             - api-gateway-network
 
+    devportal:
+        image: sagcr.azurecr.io/devportal:10.15
+        container_name: devportal-1015
+        ports:
+          - 80:8083
+        networks:
+          - api-gateway-network
+
 networks:
   api-gateway-network:
     name: api-gateway-network
