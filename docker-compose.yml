@@ -53,6 +53,8 @@ services:
     devportal:
         image: sagcr.azurecr.io/devportal:10.15
         container_name: devportal-1015
+        environment:
+          - SPRING_ELASTICSEARCH_REST_URIS="http://elasticsearch:9200"
         ports:
           - 80:8083
         networks:
