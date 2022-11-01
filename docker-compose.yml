@@ -11,10 +11,10 @@ services:
             - ./imports/licensefiles:/opt/licensefiles
         # Setting for exposing ports to the outside (external port:internal port).
         ports:
-            - 5555:5555
-            - 5543:5543
-            - 9072:9072
-            - 5566:5566
+            - 5555:5555 # http
+            - 5543:5543 # https
+            - 9072:9072 # for api gateway
+            - 5566:5566 # for socket
         # Needs to be the same network for all containers.
         environment:
             - SAG_IS_LICENSE_FILE=/opt/licensefiles/licenseKey.xml
