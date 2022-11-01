@@ -21,14 +21,6 @@ services:
         networks:
           - api-gateway-network
 
-    devportal:
-        image: sagcr.azurecr.io/devportal:10.15
-        container_name: devportal-1015
-        ports:
-          - 80:8083
-        networks:
-          - api-gateway-network
-          
     keycloak:
         image: jboss/keycloak
         container_name: keycloak
@@ -44,6 +36,27 @@ services:
         networks:
             - api-gateway-network
 
+    elasticsearch:
+        image: docker.elastic.co/elasticsearch/elasticsearch:7.13.1
+        container_name: elasticsearch
+        environment:
+          - discovery.type=single-node
+        ports:
+          # REST interface
+          - 9240:9200
+          # Nodes communication
+          - 9340:1300
+        networks:
+          - api-gateway-network
+
+
+    devportal:
+        image: sagcr.azurecr.io/devportal:10.15
+        container_name: devportal-1015
+        ports:
+          - 80:8083
+        networks:
+          - api-gateway-network
 
 networks:
   api-gateway-network:
