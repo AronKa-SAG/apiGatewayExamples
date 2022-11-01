@@ -64,6 +64,12 @@ header = {
     "Accept": "application/json"
 }
 
+if (subprocess.call(f"wsl --status", shell=True) ==  0):
+    main = "wsl -d docker-desktop"
+    subprocess.call(f"{main} ulimit -n 65536",shell=True)
+    subprocess.call(f"{main} sysctl -w fs.file-max=200000",shell=True)
+    subprocess.call(f"{main} sysctl -w vm.max_map_count=262144",shell=True)
+
 x = input("Do you want to compose API Gateway? (by default 'n') [y/n]\n> ").lower()
 if x=="y" or x=="yes" or x=="j":
     print("starting API GW via docker compose...")
