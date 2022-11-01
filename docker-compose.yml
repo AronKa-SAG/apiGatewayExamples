@@ -36,6 +36,21 @@ services:
         networks:
             - api-gateway-network
 
+    keycloak1:
+        image: jboss/keycloak
+        container_name: keycloak1
+        volumes:
+            - ./imports/keycloak:/opt/jboss/keycloak/imports
+        environment:
+            - KEYCLOAK_USER=admin
+            - KEYCLOAK_PASSWORD=manage
+            - KEYCLOAK_IMPORT=/opt/jboss/keycloak/imports/keycloak_realm_export_old.json 
+            - JDBC_PARAMS='connectTimeout=30'
+        ports:
+            - 8080:8081
+        networks:
+            - api-gateway-network
+
     # elasticsearch:
     #     image: docker.elastic.co/elasticsearch/elasticsearch:7.13.1
     #     container_name: elasticsearch
