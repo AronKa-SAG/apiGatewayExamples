@@ -47,6 +47,7 @@ services:
             - KEYCLOAK_IMPORT=/opt/jboss/keycloak/imports/keycloak_realm_export_old.json 
             - JDBC_PARAMS='connectTimeout=30'
         ports:
+            # external port:internal port
             - 8081:8080
         networks:
             - api-gateway-network
