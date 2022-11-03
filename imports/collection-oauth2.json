@@ -7,6 +7,54 @@
 	},
 	"item": [
 		{
+			"name": "Import Provider Mapping",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "file",
+					"file": {
+						"src": "./imports/keycloak/settings_provider.zip"
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5555/rest/apigateway/archive?overwrite=*&fixingMissingVersions=false",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5555",
+					"path": [
+						"rest",
+						"apigateway",
+						"archive"
+					],
+					"query": [
+						{
+							"key": "overwrite",
+							"value": "*"
+						},
+						{
+							"key": "fixingMissingVersions",
+							"value": "false"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Import Keycloak AS",
 			"protocolProfileBehavior": {
 				"disabledSystemHeaders": {
@@ -73,7 +121,7 @@
 				"body": {
 					"mode": "file",
 					"file": {
-						"src": "./imports/OAuth2-PoC.zip"
+						"src": "./imports/POC OAuth2.zip"
 					}
 				},
 				"url": {
