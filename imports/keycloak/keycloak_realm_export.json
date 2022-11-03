@@ -572,44 +572,6 @@
   },
   "clients": [
     {
-      "id": "3301e8a6-4173-48e5-9c0d-c8e483587915",
-      "clientId": "3301e8a6-4173-48e5-9c0d-c8e483587915",
-      "name": "oauth2-api",
-      "surrogateAuthRequired": false,
-      "enabled": true,
-      "alwaysDisplayInConsole": false,
-      "clientAuthenticatorType": "client-secret",
-      "secret": "**********",
-      "redirectUris": [
-        "http://redirect.dummy.org"
-      ],
-      "webOrigins": [
-        "http://redirect.dummy.org"
-      ],
-      "notBefore": 0,
-      "bearerOnly": false,
-      "consentRequired": false,
-      "standardFlowEnabled": true,
-      "implicitFlowEnabled": true,
-      "directAccessGrantsEnabled": true,
-      "serviceAccountsEnabled": true,
-      "publicClient": false,
-      "frontchannelLogout": false,
-      "protocol": "openid-connect",
-      "attributes": {
-        "oidc.ciba.grant.enabled": "false",
-        "backchannel.logout.session.required": "true",
-        "backchannel.logout.revoke.offline.tokens": "false"
-      },
-      "authenticationFlowBindingOverrides": {},
-      "fullScopeAllowed": true,
-      "nodeReRegistrationTimeout": -1,
-      "defaultClientScopes": [],
-      "optionalClientScopes": [
-        "clientscope"
-      ]
-    },
-    {
       "id": "7b48388c-636a-4fa0-a5c5-41fc913c6842",
       "clientId": "account",
       "name": "${client_account}",
