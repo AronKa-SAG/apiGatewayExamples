@@ -480,6 +480,22 @@
   "webAuthnPolicyPasswordlessAcceptableAaguids": [],
   "users": [
     {
+      "id": "ef11f16a-99cb-438b-898f-34e6b82862f5",
+      "createdTimestamp": 1667477819603,
+      "username": "service-account-3301e8a6-4173-48e5-9c0d-c8e483587915",
+      "enabled": true,
+      "totp": false,
+      "emailVerified": false,
+      "serviceAccountClientId": "3301e8a6-4173-48e5-9c0d-c8e483587915",
+      "disableableCredentialTypes": [],
+      "requiredActions": [],
+      "realmRoles": [
+        "default-roles-demo"
+      ],
+      "notBefore": 0,
+      "groups": []
+    },
+    {
       "id": "eb1ecbcd-e361-4aca-92b4-0db6f0ee7a6a",
       "createdTimestamp": 1667466986786,
       "username": "service-account-apigateway",
@@ -555,6 +571,44 @@
     ]
   },
   "clients": [
+    {
+      "id": "3301e8a6-4173-48e5-9c0d-c8e483587915",
+      "clientId": "3301e8a6-4173-48e5-9c0d-c8e483587915",
+      "name": "oauth2-api",
+      "surrogateAuthRequired": false,
+      "enabled": true,
+      "alwaysDisplayInConsole": false,
+      "clientAuthenticatorType": "client-secret",
+      "secret": "**********",
+      "redirectUris": [
+        "http://redirect.dummy.org"
+      ],
+      "webOrigins": [
+        "http://redirect.dummy.org"
+      ],
+      "notBefore": 0,
+      "bearerOnly": false,
+      "consentRequired": false,
+      "standardFlowEnabled": true,
+      "implicitFlowEnabled": true,
+      "directAccessGrantsEnabled": true,
+      "serviceAccountsEnabled": true,
+      "publicClient": false,
+      "frontchannelLogout": false,
+      "protocol": "openid-connect",
+      "attributes": {
+        "oidc.ciba.grant.enabled": "false",
+        "backchannel.logout.session.required": "true",
+        "backchannel.logout.revoke.offline.tokens": "false"
+      },
+      "authenticationFlowBindingOverrides": {},
+      "fullScopeAllowed": true,
+      "nodeReRegistrationTimeout": -1,
+      "defaultClientScopes": [],
+      "optionalClientScopes": [
+        "clientscope"
+      ]
+    },
     {
       "id": "7b48388c-636a-4fa0-a5c5-41fc913c6842",
       "clientId": "account",
