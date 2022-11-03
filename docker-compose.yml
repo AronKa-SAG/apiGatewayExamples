@@ -61,5 +61,5 @@ services:
           - api-gateway-network
 
 networks:
-  api-gateway-network:
-    name: api-gateway-network
+    api-gateway-network:
+        name: api-gateway-network

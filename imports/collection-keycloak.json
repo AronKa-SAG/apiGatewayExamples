@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "aedcdeea-4fc0-416c-8802-0966468567df",
+		"_postman_id": "a9cb0b52-9a9f-4e59-a61a-da0028f4b217",
 		"name": "Keycloak Collection",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "21920057"
@@ -97,6 +97,36 @@
 							"key": "fixingMissingVersions",
 							"value": "false"
 						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Import Strategy",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"7fe68255-d559-4c47-945c-7091dedfcf70\",\r\n    \"type\": \"OAUTH2_LOCAL_RSA\",\r\n    \"authServerAlias\": \"KeycloakAS\",\r\n    \"name\": \"gateway-apis\",\r\n    \"description\": \"\",\r\n    \"clientId\": \"8ee9a289-5e50-4283-94e7-27530f55d02b\",\r\n    \"dcrConfig\": {\r\n        \"allowedGrantTypes\": [\r\n            \"authorization_code\",\r\n            \"implicit\",\r\n            \"refresh_token\",\r\n            \"password\",\r\n            \"client_credentials\"\r\n        ],\r\n        \"applicationType\": \"web\",\r\n        \"clientType\": \"CONFIDENTIAL\",\r\n        \"clientName\": \"oauth2-api\",\r\n        \"clientVersion\": \"1.0\",\r\n        \"refreshCount\": \"1\",\r\n        \"scopes\": [\r\n            \"clientscope\"\r\n        ],\r\n        \"redirectUris\": [\r\n            \"http://redirect.dummy.org\"\r\n        ],\r\n        \"pkceType\": \"USE_GLOBAL_SETTING\"\r\n    },\r\n    \"clientRegistration\": {\r\n        \"shell\": false,\r\n        \"clientId\": \"8ee9a289-5e50-4283-94e7-27530f55d02b\",\r\n        \"name\": \"oauth2-api\",\r\n        \"tokenLifetime\": 0,\r\n        \"tokenRefreshLimit\": 0,\r\n        \"clientSecret\": \"GohsZXuczRWVB1RNYhMmgjQgcr99tMzr\",\r\n        \"enabled\": false,\r\n        \"redirectUris\": [\r\n            \"http://redirect.dummy.org\"\r\n        ],\r\n        \"clScopes\": [\r\n            \"clientscope\"\r\n        ],\r\n        \"authCodeAllowed\": true,\r\n        \"implicitAllowed\": true,\r\n        \"clientCredentialsAllowed\": true,\r\n        \"resourceOwnerAllowed\": false,\r\n        \"pkceType\": \"NOT_ENFORCED\"\r\n    },\r\n    \"jwtAuthStrategy\": {\r\n        \"id\": \"7fe68255-d559-4c47-945c-7091dedfcf70_embed\",\r\n        \"type\": \"JWT_RSA\",\r\n        \"authServerAlias\": \"KeycloakAS\",\r\n        \"name\": \"oauth2-api_embed\",\r\n        \"description\": \" Embedded\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5555/rest/apigateway/strategies",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5555",
+					"path": [
+						"rest",
+						"apigateway",
+						"strategies"
 					]
 				}
 			},
