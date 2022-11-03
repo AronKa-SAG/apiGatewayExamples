@@ -77,6 +77,6 @@ services:
     #     networks:
     #       - api-gateway-network
 
-    networks:
-        api-gateway-network:
-            name: api-gateway-network
+networks:
+    api-gateway-network:
+        name: api-gateway-network
