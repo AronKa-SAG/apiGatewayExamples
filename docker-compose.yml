@@ -36,29 +36,30 @@ services:
         networks:
             - api-gateway-network
 
-    elasticsearch:
-        image: docker.elastic.co/elasticsearch/elasticsearch:7.13.1
-        container_name: elasticsearch
-        environment:
-          - discovery.type=single-node
-        ports:
-          # REST interface
-          - 9240:9200
-          # Nodes communication
-          - 9340:1300
-        networks:
-          - api-gateway-network
+    # elasticsearch:
+    #     image: docker.elastic.co/elasticsearch/elasticsearch:8.3.3
+    #     container_name: elasticsearch
+    #     environment:
+    #       - discovery.type=single-node
+    #       - xpack.security.enabled=false
+    #     ports:
+    #       # REST interface
+    #       - 9240:9200
+    #       # Nodes communication
+    #       - 9340:1300
+    #     networks:
+    #       - api-gateway-network
 
 
-    devportal:
-        image: sagcr.azurecr.io/devportal:10.15
-        container_name: devportal-1015
-        environment:
-          - SPRING_ELASTICSEARCH_REST_URIS="http://elasticsearch:9200"
-        ports:
-          - 80:8083
-        networks:
-          - api-gateway-network
+    # devportal:
+    #     image: sagcr.azurecr.io/devportal:10.15
+    #     container_name: devportal-1015
+    #     environment:
+    #       - SPRING_ELASTICSEARCH_REST_URIS="http://elasticsearch:9200"
+    #     ports:
+    #       - 80:8083
+    #     networks:
+    #       - api-gateway-network
 
 networks:
     api-gateway-network:
