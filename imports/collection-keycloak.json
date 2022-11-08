@@ -73,7 +73,56 @@
 				"body": {
 					"mode": "file",
 					"file": {
-						"src": "./imports/gateway/settings_authServer.zip"
+						"src": "./imports/gateway/keycloak_authServer.zip"
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5555/rest/apigateway/archive?overwrite=*&fixingMissingVersions=false",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5555",
+					"path": [
+						"rest",
+						"apigateway",
+						"archive"
+					],
+					"query": [
+						{
+							"key": "overwrite",
+							"value": "*"
+						},
+						{
+							"key": "fixingMissingVersions",
+							"value": "false"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		,
+		{
+			"name": "Update local AS",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "file",
+					"file": {
+						"src": "./imports/gateway/local_authServer.zip"
 					}
 				},
 				"url": {
