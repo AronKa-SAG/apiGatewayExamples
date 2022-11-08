@@ -50,7 +50,7 @@ health_check = f"{base}/health"
 loadbalancer = f"{base}/configurations/loadBalancer"
 auth =("Administrator","manage")
 healthy_gw = False
-max_iterations = 10
+max_iterations = 12
 iterations = 0
 sleep_s = 20
 
