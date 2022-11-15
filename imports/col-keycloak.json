@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "66d02a3c-b3d9-4c2e-bf10-fe8f276ca26d",
+		"_postman_id": "13312864-fdeb-4ee4-9dbe-3791b22ea390",
 		"name": "Keycloak Collection",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "21920057"
@@ -258,7 +258,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:5555/rest/apigateway/archive?overwrite=true&fixingMissingVersions=false",
+					"raw": "http://localhost:5555/rest/apigateway/archive?overwrite=false&fixingMissingVersions=false",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -272,7 +272,7 @@
 					"query": [
 						{
 							"key": "overwrite",
-							"value": "true"
+							"value": "false"
 						},
 						{
 							"key": "fixingMissingVersions",
@@ -306,7 +306,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:5555/rest/apigateway/archive?overwrite=true&fixingMissingVersions=false",
+					"raw": "http://localhost:5555/rest/apigateway/archive?overwrite=false&fixingMissingVersions=false",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -320,7 +320,7 @@
 					"query": [
 						{
 							"key": "overwrite",
-							"value": "true"
+							"value": "false"
 						},
 						{
 							"key": "fixingMissingVersions",
