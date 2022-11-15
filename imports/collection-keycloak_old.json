@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "25d06f7b-c13a-4b53-b6e9-5d32b77aba13",
+		"_postman_id": "1ad6da52-257f-41ac-8221-b9219919185c",
 		"name": "Keycloak Collection",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "21920057"
@@ -151,7 +151,7 @@
 			"response": []
 		},
 		{
-			"name": "Import Strategies",
+			"name": "Import Strategy: openid-application",
 			"request": {
 				"method": "POST",
 				"header": [
@@ -163,7 +163,67 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"id\": \"785fd538-e8d5-4e5b-9cc3-20eea47bb201\",\r\n    \"type\": \"OPENID_CONNECT_RSA\",\r\n    \"authServerAlias\": \"KeycloakAS\",\r\n    \"name\": \"openid-api\",\r\n    \"description\": \"\",\r\n    \"clientId\": \"0e57dcc5-785d-46e9-955d-df5e658bd4c1\",\r\n    \"dcrConfig\": {\r\n        \"allowedGrantTypes\": [\r\n            \"authorization_code\",\r\n            \"implicit\",\r\n            \"refresh_token\",\r\n            \"password\",\r\n            \"client_credentials\"\r\n        ],\r\n        \"applicationType\": \"web\",\r\n        \"clientType\": \"CONFIDENTIAL\",\r\n        \"clientName\": \"openid-api\",\r\n        \"clientVersion\": \"1.0\",\r\n        \"refreshCount\": \"1\",\r\n        \"scopes\": [\r\n            \"clientscope\"\r\n        ],\r\n        \"redirectUris\": [\r\n            \"http://redirect.dummy.org\"\r\n        ],\r\n        \"pkceType\": \"USE_GLOBAL_SETTING\"\r\n    },\r\n    \"clientRegistration\": {\r\n        \"shell\": false,\r\n        \"clientId\": \"0e57dcc5-785d-46e9-955d-df5e658bd4c1\",\r\n        \"name\": \"openid-api\",\r\n        \"tokenLifetime\": 0,\r\n        \"tokenRefreshLimit\": 0,\r\n        \"clientSecret\": \"zP4nxv2JGyZZUWpKN56RimGZJKOdGg9E\",\r\n        \"enabled\": false,\r\n        \"redirectUris\": [\r\n            \"http://redirect.dummy.org\"\r\n        ],\r\n        \"clScopes\": [\r\n            \"clientscope\"\r\n        ],\r\n        \"authCodeAllowed\": true,\r\n        \"implicitAllowed\": true,\r\n        \"clientCredentialsAllowed\": true,\r\n        \"resourceOwnerAllowed\": false,\r\n        \"pkceType\": \"NOT_ENFORCED\"\r\n    },\r\n    \"jwtAuthStrategy\": {\r\n        \"id\": \"785fd538-e8d5-4e5b-9cc3-20eea47bb201_embed\",\r\n        \"type\": \"JWT_RSA\",\r\n        \"authServerAlias\": \"KeycloakAS\",\r\n        \"name\": \"openid-api_embed\",\r\n        \"description\": \" Embedded\"\r\n    }\r\n}",
+					"raw": "{\r\n    \"id\": \"785fd538-e8d5-4e5b-9cc3-20eea47bb201\",\r\n    \"type\": \"OPENID_CONNECT_RSA\",\r\n    \"authServerAlias\": \"KeycloakAS\",\r\n    \"name\": \"openid-api\",\r\n    \"description\": \"\",\r\n    \"clientId\": \"0e57dcc5-785d-46e9-955d-df5e658bd4c1\",\r\n    \"dcrConfig\": {\r\n        \"allowedGrantTypes\": [\r\n            \"authorization_code\",\r\n            \"implicit\",\r\n            \"refresh_token\",\r\n            \"password\",\r\n            \"client_credentials\"\r\n        ],\r\n        \"applicationType\": \"web\",\r\n        \"clientType\": \"CONFIDENTIAL\",\r\n        \"clientName\": \"openid-api\",\r\n        \"clientVersion\": \"1.0\",\r\n        \"refreshCount\": \"1\",\r\n        \"scopes\": [\r\n            \"clientscope\"\r\n        ],\r\n        \"redirectUris\": [\r\n            \"http://redirect.dummy.org\"\r\n        ],\r\n        \"pkceType\": \"USE_GLOBAL_SETTING\"\r\n    },\r\n    \"clientRegistration\": {\r\n        \"shell\": false,\r\n        \"clientId\": \"0e57dcc5-785d-46e9-955d-df5e658bd4c1\",\r\n        \"name\": \"openid-api\",\r\n        \"tokenLifetime\": 0,\r\n        \"tokenRefreshLimit\": 0,\r\n        \"enabled\": false,\r\n        \"redirectUris\": [\r\n            \"http://redirect.dummy.org\"\r\n        ],\r\n        \"clScopes\": [\r\n            \"clientscope\"\r\n        ],\r\n        \"authCodeAllowed\": true,\r\n        \"implicitAllowed\": true,\r\n        \"clientCredentialsAllowed\": true,\r\n        \"resourceOwnerAllowed\": false,\r\n        \"pkceType\": \"NOT_ENFORCED\"\r\n    },\r\n    \"jwtAuthStrategy\": {\r\n        \"id\": \"785fd538-e8d5-4e5b-9cc3-20eea47bb201_embed\",\r\n        \"type\": \"JWT_RSA\",\r\n        \"authServerAlias\": \"KeycloakAS\",\r\n        \"name\": \"openid-api_embed\",\r\n        \"description\": \" Embedded\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5555/rest/apigateway/strategies",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5555",
+					"path": [
+						"rest",
+						"apigateway",
+						"strategies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Import Strategy: oauth2-write-application",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"9969d06e-5feb-4316-b93c-8395d0759768\",\r\n    \"type\": \"OAUTH2_LOCAL_RSA\",\r\n    \"authServerAlias\": \"KeycloakAS\",\r\n    \"name\": \"oauth2-write\",\r\n    \"description\": \"\",\r\n    \"clientId\": \"ee0a7f1f-463d-46cd-984f-96632f3ab7a3\",\r\n    \"dcrConfig\": {\r\n        \"allowedGrantTypes\": [\r\n            \"authorization_code\",\r\n            \"implicit\",\r\n            \"refresh_token\",\r\n            \"password\",\r\n            \"client_credentials\"\r\n        ],\r\n        \"applicationType\": \"web\",\r\n        \"clientType\": \"CONFIDENTIAL\",\r\n        \"clientName\": \"oauth2-write\",\r\n        \"clientVersion\": \"1.0\",\r\n        \"refreshCount\": \"1\",\r\n        \"scopes\": [\r\n            \"oauth2-write_scope\"\r\n        ],\r\n        \"redirectUris\": [\r\n            \"https://redirect.dummy.org\"\r\n        ],\r\n        \"pkceType\": \"USE_GLOBAL_SETTING\"\r\n    },\r\n    \"clientRegistration\": {\r\n        \"shell\": false,\r\n        \"clientId\": \"ee0a7f1f-463d-46cd-984f-96632f3ab7a3\",\r\n        \"name\": \"oauth2-write\",\r\n        \"tokenLifetime\": 0,\r\n        \"tokenRefreshLimit\": 0,\r\n        \"clientSecret\": \"fM5RNHfu0eywFrsLooip73nO0mP1pRkd\",\r\n        \"enabled\": false,\r\n        \"redirectUris\": [\r\n            \"https://redirect.dummy.org\"\r\n        ],\r\n        \"clScopes\": [\r\n            \"oauth2-write_scope\"\r\n        ],\r\n        \"authCodeAllowed\": true,\r\n        \"implicitAllowed\": true,\r\n        \"clientCredentialsAllowed\": true,\r\n        \"resourceOwnerAllowed\": false,\r\n        \"pkceType\": \"NOT_ENFORCED\"\r\n    },\r\n    \"jwtAuthStrategy\": {\r\n        \"id\": \"9969d06e-5feb-4316-b93c-8395d0759768_embed\",\r\n        \"type\": \"JWT_RSA\",\r\n        \"authServerAlias\": \"KeycloakAS\",\r\n        \"name\": \"oauth2-write_embed\",\r\n        \"description\": \" Embedded\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5555/rest/apigateway/strategies",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5555",
+					"path": [
+						"rest",
+						"apigateway",
+						"strategies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Import Strategy: oauth2-read-application",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"0ce291ae-978c-4978-a6dc-8683112a6e15\",\r\n    \"type\": \"OAUTH2_LOCAL_RSA\",\r\n    \"authServerAlias\": \"KeycloakAS\",\r\n    \"name\": \"oauth2-read\",\r\n    \"description\": \"\",\r\n    \"clientId\": \"7f017d55-517a-4467-8009-f8657a428e8c\",\r\n    \"dcrConfig\": {\r\n        \"allowedGrantTypes\": [\r\n            \"authorization_code\",\r\n            \"implicit\",\r\n            \"refresh_token\",\r\n            \"password\",\r\n            \"client_credentials\"\r\n        ],\r\n        \"applicationType\": \"web\",\r\n        \"clientType\": \"CONFIDENTIAL\",\r\n        \"clientName\": \"oauth2-read\",\r\n        \"clientVersion\": \"1.0\",\r\n        \"refreshCount\": \"1\",\r\n        \"scopes\": [\r\n            \"oauth2-read_scope\"\r\n        ],\r\n        \"redirectUris\": [\r\n            \"https://redirect.dummy.org\"\r\n        ],\r\n        \"pkceType\": \"USE_GLOBAL_SETTING\"\r\n    },\r\n    \"clientRegistration\": {\r\n        \"shell\": false,\r\n        \"clientId\": \"7f017d55-517a-4467-8009-f8657a428e8c\",\r\n        \"name\": \"oauth2-read\",\r\n        \"tokenLifetime\": 0,\r\n        \"tokenRefreshLimit\": 0,\r\n        \"clientSecret\": \"USJDip6ckn1VikaVOVFRNWkG5F0gkv57\",\r\n        \"enabled\": false,\r\n        \"redirectUris\": [\r\n            \"https://redirect.dummy.org\"\r\n        ],\r\n        \"clScopes\": [\r\n            \"oauth2-read_scope\"\r\n        ],\r\n        \"authCodeAllowed\": true,\r\n        \"implicitAllowed\": true,\r\n        \"clientCredentialsAllowed\": true,\r\n        \"resourceOwnerAllowed\": false,\r\n        \"pkceType\": \"NOT_ENFORCED\"\r\n    },\r\n    \"jwtAuthStrategy\": {\r\n        \"id\": \"0ce291ae-978c-4978-a6dc-8683112a6e15_embed\",\r\n        \"type\": \"JWT_RSA\",\r\n        \"authServerAlias\": \"KeycloakAS\",\r\n        \"name\": \"oauth2-read_embed\",\r\n        \"description\": \" Embedded\"\r\n    }\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -194,7 +254,7 @@
 				"body": {
 					"mode": "file",
 					"file": {
-						"src": "/C:/Users/jonl/apiGatewayExamples/apiGatewayExamples/imports/POC OpenID.zip"
+						"src": "./imports/POC OpenID.zip"
 					}
 				},
 				"url": {
@@ -272,7 +332,7 @@
 			"response": []
 		},
 		{
-			"name": "Import Scope Mapping",
+			"name": "Import Scope Mapping: openid-application",
 			"protocolProfileBehavior": {
 				"disabledSystemHeaders": {
 					"accept": true
@@ -290,7 +350,103 @@
 				"body": {
 					"mode": "file",
 					"file": {
-						"src": "./imports/gateway/scope_mapping.zip"
+						"src": "./imports/gateway/clientscope.zip"
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5555/rest/apigateway/archive?overwrite=*&fixingMissingVersions=false",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5555",
+					"path": [
+						"rest",
+						"apigateway",
+						"archive"
+					],
+					"query": [
+						{
+							"key": "overwrite",
+							"value": "*"
+						},
+						{
+							"key": "fixingMissingVersions",
+							"value": "false"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Import Scope Mapping: oauth2-write-application",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "file",
+					"file": {
+						"src": "./imports/gateway/oauth2-write_scope.zip"
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5555/rest/apigateway/archive?overwrite=*&fixingMissingVersions=false",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5555",
+					"path": [
+						"rest",
+						"apigateway",
+						"archive"
+					],
+					"query": [
+						{
+							"key": "overwrite",
+							"value": "*"
+						},
+						{
+							"key": "fixingMissingVersions",
+							"value": "false"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Import Scope Mapping: oauth2-read-application",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "file",
+					"file": {
+						"src": "./imports/gateway/oauth2-read_scope.zip"
 					}
 				},
 				"url": {
@@ -327,7 +483,7 @@
 				"body": {
 					"mode": "file",
 					"file": {
-						"src": "./imports/keycloak/getKeycloakToken.zip"
+						"src": "./imports/gateway/getKeycloakToken.zip"
 					}
 				},
 				"url": {
