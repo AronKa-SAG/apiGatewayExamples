@@ -64,11 +64,16 @@ header = {
     "Accept": "application/json"
 }
 
-if (subprocess.call(f"wsl --status", shell=True) ==  0):
-    main = "wsl -d docker-desktop"
-    subprocess.call(f"{main} ulimit -n 65536",shell=True)
-    subprocess.call(f"{main} sysctl -w fs.file-max=200000",shell=True)
-    subprocess.call(f"{main} sysctl -w vm.max_map_count=262144",shell=True)
+
+wsl_config_path = os.getenv('USERPROFILE')+"\.wslconfig"
+if (subprocess.call(f"wsl --status", shell=True) ==  0) and not(os.path.exists(wsl_config_path)):
+    with open(wsl_config_path, "w") as f:
+        wsl_settings = "[wsl2]\nmemory = 8GB\nkernelCommandLine = sysctl.vm.max_map_count = 262144 && ulimit -n 65536"
+        f.write(wsl_settings)
+#     main = "wsl -d docker-desktop"
+#     subprocess.call(f"{main} ulimit -n 65536",shell=True)
+#     subprocess.call(f"{main} sysctl -w fs.file-max=200000",shell=True)
+#     subprocess.call(f"{main} sysctl -w vm.max_map_count=",shell=True)
 
 x = input("Do you want to compose API Gateway? (by default 'n') [y/n]\n> ").lower()
 if x=="y" or x=="yes" or x=="j":
