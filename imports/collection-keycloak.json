@@ -269,7 +269,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:5555/rest/apigateway/archive?overwrite=*&fixingMissingVersions=false",
+					"raw": "http://localhost:5555/rest/apigateway/archive?overwrite=true&fixingMissingVersions=false",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -283,7 +283,7 @@
 					"query": [
 						{
 							"key": "overwrite",
-							"value": "*"
+							"value": "true"
 						},
 						{
 							"key": "fixingMissingVersions",
@@ -317,7 +317,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:5555/rest/apigateway/archive?overwrite=*&fixingMissingVersions=false",
+					"raw": "http://localhost:5555/rest/apigateway/archive?overwrite=true&fixingMissingVersions=false",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -331,7 +331,7 @@
 					"query": [
 						{
 							"key": "overwrite",
-							"value": "*"
+							"value": "true"
 						},
 						{
 							"key": "fixingMissingVersions",
@@ -365,7 +365,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:5555/rest/apigateway/archive?overwrite=*&fixingMissingVersions=false",
+					"raw": "http://localhost:5555/rest/apigateway/archive?overwrite=true&fixingMissingVersions=false",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -379,7 +379,7 @@
 					"query": [
 						{
 							"key": "overwrite",
-							"value": "*"
+							"value": "true"
 						},
 						{
 							"key": "fixingMissingVersions",
