@@ -2,7 +2,11 @@ import os
 import subprocess
 import sys
 import time
-import requests
+try:
+    import requests
+except:
+    subprocess.call("pip install requests", shell=True)
+    import requests
 
 def nameOf(file):
     name = ""
