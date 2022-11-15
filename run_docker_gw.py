@@ -56,7 +56,7 @@ sleep_s = 20
 
 location = os.getenv('APPDATA')+'\\npm'
 if not os.path.exists(location):
-    raise FileNotFoundError("newman was not installed! Please follow the install-instruction.")
+    raise FileNotFoundError("newman was not installed! Please read README.md carefully!")
     
 # docker_location = 'C:/Users/y508854/OneDrive - Software AG/Documents/API Gateway Resources/Docker Gateway'
 docker_run = 'docker compose up -d'
