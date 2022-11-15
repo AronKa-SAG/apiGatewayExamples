@@ -43,8 +43,6 @@ elif len(sys.argv) == 2:
         print("-\tfull")
         while not (key  in options or key == "full"):
             key = input("Insert one of the options above:\n> ")
-            if key == "exit":
-                exit()
 else:
     # get all files in imports folder for big demo
     key = "full"
