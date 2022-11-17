@@ -13,6 +13,7 @@ except:
 max_iterations = 12
 iterations = 0
 sleep_s = 20
+create_network = "docker network create devportal-network"
 elasticsearch = 'docker run -d -e "discovery.type=single-node" -e "xpack.security.enabled=false" -u elasticsearch --net devportal-network --name elasticsearch --hostname elasticsearch -p 9200:9200 --net-alias elasticsearch docker.elastic.co/elasticsearch/elasticsearch:8.2.3'
 devportal = 'docker run -d -e SPRING_ELASTICSEARCH_REST_URIS="http://elasticsearch:9200" --net devportal-network --name devportal --hostname devportal -p 80:8083 sagcr.azurecr.io/devportal:10.15'
 statuscall_addr = "http://localhost:9200/_status"
@@ -30,6 +31,9 @@ if (subprocess.call(f"wsl --status", shell=True) ==  0) and not(os.path.exists(w
 
 x = input("Do you want to compose API Gateway? (by default 'n') [y/n]\n> ").lower()
 if x in {"y", "yes", "j"}:
+    # create docker-network
+    subprocess.call(f"{create_network}", shell=True)
+
     # start elasticsearch
     subprocess.call(f"{elasticsearch}", shell=True)
     print("Starting elasticsearch...")
