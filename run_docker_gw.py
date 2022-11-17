@@ -9,7 +9,7 @@ except:
     subprocess.call("pip install requests", shell=True)
     import requests
 
-# This function will return name
+# This function will return name of collection
 # i.e. : nameOf("collection-example.json") -> "example"
 def nameOf(file : str) -> str:
     name : str = ""
