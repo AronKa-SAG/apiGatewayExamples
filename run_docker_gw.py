@@ -8,14 +8,14 @@ except:
     # installs package requests if not installes
     subprocess.call("pip install requests", shell=True)
     import requests
-    
+
 # available import-options (apis) for apigateway
 poc_dict = {}
 
 # dict for PoC demos
 for file in os.listdir("./imports"):
 
-    # checks if file includes "collection" in it's name and checks if it is a json-file
+    # checks if json-file and includes "collection" in it's name
     if "collection" in file and file.endswith('.json'):
         # Adds file to poc_dict
         poc_dict[file.rsplit("-",1)[1][:-5]] = f"./imports/{file}"
@@ -46,12 +46,11 @@ health_check = f"{base}/health"
 loadbalancer = f"{base}/configurations/loadBalancer"
 healthy_gw = False
 max_iterations = 12
-iterations = 0
 sleep_s = 20
-elasticsearch = 'docker run -d -e "discovery.type=single-node" -e "xpack.security.enabled=false" -u elasticsearch --network api-gateway-network --name elastic --hostname elastic -p 9200:9200 --net-alias elastic docker.elastic.co/elasticsearch/elasticsearch:8.2.3'
-devportal = 'docker run -d -e SPRING_ELASTICSEARCH_REST_URIS="http://elastic:9200" --network api-gateway-network --name devportal --hostname devportal -p 80:8083 sagcr.azurecr.io/devportal:10.15'
-statuscall_addr = "http://localhost:9200/_status"
-healthy_es = False
+# elasticsearch = 'docker run -d -e "discovery.type=single-node" -e "xpack.security.enabled=false" -u elasticsearch --network api-gateway-network --name elastic --hostname elastic -p 9200:9200 --net-alias elastic docker.elastic.co/elasticsearch/elasticsearch:8.2.3'
+# devportal = 'docker run -d -e SPRING_ELASTICSEARCH_REST_URIS="http://elastic:9200" --network api-gateway-network --name devportal --hostname devportal -p 80:8083 sagcr.azurecr.io/devportal:10.15'
+# statuscall_addr = "http://localhost:9200/_status"
+# healthy_es = False
 
 
 # checks if npm exists
@@ -89,38 +88,37 @@ if x in {"y", "yes", "j"}:
     return_code = subprocess.call(f"{docker_run}", shell=True)
 
     # start elasticsearch
-    subprocess.call(f"{elasticsearch}", shell=True)
+    # subprocess.call(f"{elasticsearch}", shell=True)
 
-    # Will exit when {max_iterations} is reached 
-    while(iterations < max_iterations):
-        try:
-            # calls elasticsearch to check health
-            r = requests.get(url = statuscall_addr, headers = header_es)
+    # # Will exit when {max_iterations} is reached 
+    # for iterations in range(max_iterations):
+    #     try:
+    #         # calls elasticsearch to check health
+    #         r = requests.get(url = statuscall_addr, headers = header_es)
 
-            if r.status_code == 200:
-                # will run devportal if http-call was successful
-                print("Elasticsearch is up and running! Initializing devportal...")
-                healthy_es = False
-                subprocess.call(f"{devportal}", shell=True)
-            else:
-                # waits {sleep_s} seconds till next http-call
-                print(f"Healthcheck failed! Retry in {sleep_s}s. [{iterations + 1}/{max_iterations}]")
-                iterations += 1
-                time.sleep(sleep_s)
-        except:
-            # waits {sleep_s} seconds till next http-call
-            print(f"Waiting for elasticsearch... [{iterations + 1}/{max_iterations}]")
-            iterations += 1
-            time.sleep(sleep_s)
+    #         if r.status_code == 200:
+    #             # will run devportal if http-call was successful
+    #             print("Elasticsearch is up and running! Initializing devportal...")
+    #             healthy_es = False
+    #             subprocess.call(f"{devportal}", shell=True)
+    #         else:
+    #             # waits {sleep_s} seconds till next http-call
+    #             print(f"Healthcheck failed! Retry in {sleep_s}s. [{iterations + 1}/{max_iterations}]")
+    #             iterations += 1
+    #             time.sleep(sleep_s)
+    #     except:
+    #         # waits {sleep_s} seconds till next http-call
+    #         print(f"Waiting for elasticsearch... [{iterations + 1}/{max_iterations}]")
+    #         iterations += 1
+    #         time.sleep(sleep_s)
 
-    # will raise error when elasticsearch couldn't start in {max_iterations * sleep_s} seconds
-    if(not(healthy_es)):
-        raise ConnectionError("Could not start elasticsearch and therefore was not able to install devportal!")
+    # # will raise error when elasticsearch couldn't start in {max_iterations * sleep_s} seconds
+    # if(not(healthy_es)):
+    #     raise ConnectionError("Could not start elasticsearch and therefore was not able to install devportal!")
 
-iterations = 0
 
 # will exit when {max_iterations} is reached
-while(iterations < max_iterations):
+for iterations in range(max_iterations):
     try:
         # calls apigateway to check health
         r = requests.get(url = health_check, headers = header_gw)
@@ -147,7 +145,7 @@ if healthy_gw:
     # grabs loadbalancersettings of apigateway
     r = requests.get(url = loadbalancer, headers = header_gw)
     
-    # checks if httpUrls is set. If not a config-file will be pushed to apigateway 
+    # checks if httpUrls is set. If not a config-file will be pushed to apigateway
     if int(len(r.json()["httpUrls"])) == 0:
         subprocess.call(f"{location}/newman run conf.json", shell=True)
 
