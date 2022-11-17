@@ -82,6 +82,35 @@ if x=="y" or x=="yes" or x=="j":
     print("starting API GW via docker compose...")
     return_code = subprocess.call(f"{docker_run}", shell=True)
 
+elasticsearch = 'docker run -d -e "discovery.type=single-node" -e "xpack.security.enabled=false" -u elasticsearch --net api-gateway-network --hostname elastic --net-alias elastic docker.elastic.co/elasticsearch/elasticsearch:8.2.3'
+devportal = 'docker run -d -e SPRING_ELASTICSEARCH_REST_URIS="http://elastic:9200" --net api-gateway-network --hostname devportal -p 80:8083 sagcr.azurecr.io/devportal:10.15'
+statuscall_addr = "http://localhost:9200/_status"
+healthy_es = False
+
+subprocess.call(f"{elasticsearch}", shell=True)
+
+while(iterations < max_iterations):
+    try:
+        r = requests.get(url = statuscall_addr, headers = header)
+        if r.status_code == 200:
+            print("Elasticsearch is up and running! Initializing devportal...")
+            healthy_es = False
+            subprocess.call(f"{devportal}", shell=True)
+        else:
+            print(f"Healthcheck failed! Retry in {sleep_s}s. [{iterations + 1}/{max_iterations}]")
+            iterations += 1
+            time.sleep(sleep_s)
+    except:
+        print(f"Waiting for elasticsearch... [{iterations + 1}/{max_iterations}]")
+        iterations += 1
+        time.sleep(sleep_s)
+
+if(not(healthy_es)):
+    raise ConnectionError("Could not start elasticsearch and therefore was not able to install devportal!")
+
+
+
+iterations = 0
 while(iterations < max_iterations):
     try:
         r = requests.get(url = health_check, headers=header)
