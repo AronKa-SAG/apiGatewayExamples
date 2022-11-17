@@ -5,7 +5,7 @@ import time
 try:
     import requests
 except:
-    # installs package requests if not installes
+    # installs package requests if not installed
     subprocess.call("pip install requests", shell=True)
     import requests
 
