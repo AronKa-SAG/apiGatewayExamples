@@ -11,7 +11,6 @@ except:
 
 
 max_iterations = 12
-iterations = 0
 sleep_s = 20
 create_network = "docker network create devportal-network"
 elasticsearch = 'docker run -d -e "discovery.type=single-node" -e "xpack.security.enabled=false" -u elasticsearch --net devportal-network --name elasticsearch --hostname elasticsearch -p 9200:9200 --net-alias elasticsearch docker.elastic.co/elasticsearch/elasticsearch:8.2.3'
@@ -39,7 +38,7 @@ if x in {"y", "yes", "j"}:
     print("Starting elasticsearch...")
 
     # Will exit when {max_iterations} is reached 
-    while(iterations < max_iterations):
+    for iterations in range(max_iterations):
         try:
             # calls elasticsearch to check health
             r = requests.get(url = statuscall_addr, headers = header_es)
