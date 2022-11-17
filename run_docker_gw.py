@@ -61,7 +61,7 @@ healthy_gw = False
 max_iterations = 12
 iterations = 0
 sleep_s = 20
-elasticsearch = 'docker run -d -e "discovery.type=single-node" -e "xpack.security.enabled=false" -u elasticsearch --network api-gateway-network --name elasticsearch --hostname elastic -p 9200:9200 --net-alias elastic docker.elastic.co/elasticsearch/elasticsearch:8.2.3'
+elasticsearch = 'docker run -d -e "discovery.type=single-node" -e "xpack.security.enabled=false" -u elasticsearch --network api-gateway-network --name elastic --hostname elastic -p 9200:9200 --net-alias elastic docker.elastic.co/elasticsearch/elasticsearch:8.2.3'
 devportal = 'docker run -d -e SPRING_ELASTICSEARCH_REST_URIS="http://elastic:9200" --network api-gateway-network --name devportal --hostname devportal -p 80:8083 sagcr.azurecr.io/devportal:10.15'
 statuscall_addr = "http://localhost:9200/_status"
 healthy_es = False
