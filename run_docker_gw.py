@@ -8,21 +8,7 @@ except:
     # installs package requests if not installes
     subprocess.call("pip install requests", shell=True)
     import requests
-
-# This function will return name of collection
-# i.e. : nameOf("collection-example.json") -> "example"
-def nameOf(file : str) -> str:
-    name : str = ""
-    partOfName : bool = False
-    for c in file:
-        if c == ".":
-            partOfName = False
-        if partOfName:
-            name += c
-        if c == "-":
-            partOfName = True
-    return name
-
+    
 # available import-options (apis) for apigateway
 poc_dict = {}
 
@@ -31,7 +17,8 @@ for file in os.listdir("./imports"):
 
     # checks if file includes "collection" in it's name and checks if it is a json-file
     if "collection" in file and file.endswith('.json'):
-        poc_dict[nameOf(file)] = f"./imports/{file}"
+        # Adds file to poc_dict
+        poc_dict[file.rsplit("-",1)[1][:-5]] = f"./imports/{file}"
 
 # input args to choose demo
 options : list = list(poc_dict.keys())
