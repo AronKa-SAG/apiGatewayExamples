@@ -70,7 +70,7 @@ To view the list of all available examples, execute the command:
 ### Testing
 There is a test-unit-file called [testing.json](testing.json). Import this file in Postman.
 #### Tests for authorization incl. OpenID, OAuth2, JWT
-When you look at the tests carefully, you will notice that the tests do an API call <b>before</b> the actual API call. In that call it gets the token from keycloak. This token is then used in the actual API call to authenticate before gateway. Why is this even necessary? It is necessary because would you call keycloak directly the bearer-token attribute 'iss' would include 'localhost'. But because we are in a virtual network (to be more precised: docker-network) and the hostname of keycloak there is 'keycloak', gateway will refuse our request. When we call a gateway API, we are in the virtual network and then our bearer-token's attribute 'iss' will include 'keycloak' instead of 'localhost'. Look for yourself at [jwt.io](https://jwt.io/) and paste the bearer-tokens in there.
+When you look at the tests carefully, you will notice that the tests do an API call <b>before</b> the actual API call. In that call it gets the token from keycloak. This token is then used in the actual API call to authenticate before gateway. Why is this even necessary? It is necessary because would you call keycloak directly the bearer-token attribute 'iss' would include 'localhost'. But because we are in a virtual network (to be more precised: docker-network) and the hostname of keycloak there is 'keycloak', gateway will refuse our request. When we call a gateway API, we are in the virtual network and then our bearer-token's attribute 'iss' will include 'keycloak' instead of 'localhost'. Look for yourself at [jwt.io](https://jwt.io/) and paste the bearer-tokens in there. To get a better understanding it is also useful to review the getKeycloakToken-API.
 
 ### Accessing via localhost
 If you didn't change any configurations in the YML-files, you can access the products on the following ports:
@@ -89,13 +89,15 @@ In this chapter I will try to explain some of the more complex APIs to you.
 
 But first I will explain keycloak by a little to you so that it is more understandable what some of the APIs are doing.
 ### What is keycloak?
-Keycloak is an authentication-server. That means its purpose is to give certain permissions to certain persons. You for sure don't want an external to use your administrative APIs, right? So therefore you create so called 'clients' in keycloak. Those clients impersonate a person. All of those clients have other permissions. For example the Administrator has access to all APIs, while an external only has access to one specific API. 
+Keycloak is an authentication-server. That means its purpose is to give certain permissions to certain persons. You for sure don't want an external to use your administrative APIs, right? So therefore you create so called 'clients' in keycloak. All of those clients have other permissions. For example the Administrator has access to all APIs, while an external only has access to one specific API. 
 In API Gateway you also have the ability to give someone just read-permission. That means you are just able to make a GET-request. (further informations in [oauth2](#oauth2-(included-in-example-keycloak)))
 
 ### OAuth2 (included in example keycloak)
-This API uses the method of OAuth2-authentication. It is seperated into two scopes. One scope is called 'WRITE'. With that scope your are just able to POST, PUT and DELETE data. The other is called 'READ' which only allows you to GET data. Internally those two API-scopes are linked to two seperate scopes in keycloak. And those two keycloak-scopes give the client x read-permission and the client y write-permission. That means: Should client x try to GET data, gateway will refuse the request and will instead give a response with statuscode 401 (unauthorized). But should client x try to PUT data, gateway will accept the request and put the data.
-
+This API uses the method of OAuth2-authentication. It is seperated into two scopes. One scope is called 'WRITE'. With that scope your are just able to POST, PUT and DELETE data. The other is called 'READ' which only allows you to GET data. Internally those two API-scopes are linked to two seperate scopes in keycloak. And those two keycloak-scopes give the client x read-permission and the client y write-permission. That means: Should client x try to GET data, gateway will refuse the request and will instead give a response with statuscode 401 (unauthorized). But should client x try to PUT data, gateway will accept the request and puts the data.
 
 ### JWT (included in example keycloak)
-### Client Certification (included in client_cert)
+TODO
 
+
+### Client Certification (included in client_cert)
+You may have problems getting a valid response. This is caused by the fact that API Gateway refuses your request because you may have not deposit a certificate. Click [here](imports/client_cert/README.md) to solve this issue.
