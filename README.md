@@ -57,36 +57,20 @@ or
 ## Usage
 
 ### Setup
-The repo can be used by running the [docker-compose file](docker-compose.yml) via commandline:
-><code>docker-compose up -d</code>
+Make sure Docker Desktop is started.
 
-This will create API Gateway and wS IS.
-
-To run API Gateway execute the following on your terminal:
-><code>docker images</code>
-><code>docker run -d -p 5555:5555 -p 9072:9072 --hostname apigw-host --name apigw *{REPOSITORY}*:*{TAG}*</code>
-
-<b>&uarr; Modify this! &uarr;</b>
-
-Should you have changed the YML-file just change the ports to the right ones.
-
-Once Docker is started and you pulled the corresponding images, you can run the [run_docker_gw.py](run_docker_gw.py) file using the following syntax:<br>
+Once it is started and you pulled the corresponding images, you can run the [run_docker_gw.py](run_docker_gw.py) file using the following syntax:<br>
 ><code>python run_docker_gw.py *{example_name}*</code>
 
 If 'import requests' in pythonsript *run_docker_gw.py* doesn't work out execute the command <code>pip install requests</code>.
 
-<br>The currently available *{example_name}* are given when entering a wrong *{example_name}*.
+To view the list of all available examples, execute the command:
+><code>python run_docker_gw.py lst</code>
 
-List of available examples:
-- [empty] or *default* - imports all available examples
-- *keycloak*
-- *data_masking*
-- *conditional_routing*
-- *dynamic_routing*
-- *websocket*
-- *mashup*
-- *client_cert*
-- *request_transformation*
+### Testing
+There is a test-unit-file called [testing.json](testing.json). Import this file in Postman.
+#### Tests for authorization incl. OpenID, OAuth2, JWT
+When you look at the tests carefully, you will notice that the tests do an API call <b>before</b> the actual API call. In that call it gets the token from keycloak. This token is then used in the actual API call to authenticate before gateway. Why is this even necessary? It is necessary because would you call keycloak directly the bearer-token attribute 'iss' would include 'localhost'. But because we are in a virtual network (to be more precised: docker-network) and the hostname of keycloak there is 'keycloak', gateway will refuse our request. When we call a gateway API, we are in the virtual network and then our bearer-token's attribute 'iss' will include 'keycloak' instead of 'localhost'. Look for yourself at [jwt.io](https://jwt.io/) and paste the bearer-tokens in there.
 
 ### Accessing via localhost
 If you didn't change any configurations in the YML-files, you can access the products on the following ports:
@@ -99,3 +83,19 @@ If you didn't change any configurations in the YML-files, you can access the pro
 | IS 2 - HTTP | 15555 |
 | Keycloak | 8080 |
 | API Portal | 18101 |
+
+## Introduction of Examples
+In this chapter I will try to explain some of the more complex APIs to you.
+
+But first I will explain keycloak by a little to you so that it is more understandable what some of the APIs are doing.
+### What is keycloak?
+Keycloak is an authentication-server. That means its purpose is to give certain permissions to certain persons. You for sure don't want an external to use your administrative APIs, right? So therefore you create so called 'clients' in keycloak. Those clients impersonate a person. All of those clients have other permissions. For example the Administrator has access to all APIs, while an external only has access to one specific API. 
+In API Gateway you also have the ability to give someone just read-permission. That means you are just able to make a GET-request. (further informations in [oauth2](#oauth2-(included-in-example-keycloak)))
+
+### OAuth2 (included in example keycloak)
+This API uses the method of OAuth2-authentication. It is seperated into two scopes. One scope is called 'WRITE'. With that scope your are just able to POST, PUT and DELETE data. The other is called 'READ' which only allows you to GET data. Internally those two API-scopes are linked to two seperate scopes in keycloak. And those two keycloak-scopes give the client x read-permission and the client y write-permission. That means: Should client x try to GET data, gateway will refuse the request and will instead give a response with statuscode 401 (unauthorized). But should client x try to PUT data, gateway will accept the request and put the data.
+
+
+### JWT (included in example keycloak)
+### Client Certification (included in client_cert)
+
