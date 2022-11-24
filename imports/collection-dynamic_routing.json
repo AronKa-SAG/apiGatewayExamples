@@ -39,7 +39,7 @@
 				"body": {
 					"mode": "file",
 					"file": {
-						"src": "./imports/POC Dynamic Routing.zip"
+						"src": "./imports/APIs/POC Dynamic Routing.zip"
 					}
 				},
 				"url": {

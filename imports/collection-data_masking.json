@@ -39,7 +39,7 @@
 				"body": {
 					"mode": "file",
 					"file": {
-						"src": "./imports/POC Data Masking.zip"
+						"src": "./imports/APIs/POC Data Masking.zip"
 					}
 				},
 				"url": {

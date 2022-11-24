@@ -95,7 +95,7 @@
 			"response": []
 		},
 		{
-			"name": "Import API w/ Client Certificate Auth",
+			"name": "Import API Client Certificate Auth",
 			"protocolProfileBehavior": {
 				"disabledSystemHeaders": {
 					"accept": true
@@ -128,7 +128,7 @@
 				"body": {
 					"mode": "file",
 					"file": {
-						"src": "./imports/POC Client Certificate.zip"
+						"src": "./imports/APIs/POC Client Certificate.zip"
 					}
 				},
 				"url": {

@@ -39,7 +39,7 @@
 				"body": {
 					"mode": "file",
 					"file": {
-						"src": "./imports/POC Mashup.zip"
+						"src": "./imports/APIs/POC Mashup.zip"
 					}
 				},
 				"url": {

@@ -265,7 +265,7 @@
 				"body": {
 					"mode": "file",
 					"file": {
-						"src": "./imports/gateway/clientscope.zip"
+						"src": "./imports/Scopes/clientscope.zip"
 					}
 				},
 				"url": {
@@ -313,7 +313,7 @@
 				"body": {
 					"mode": "file",
 					"file": {
-						"src": "./imports/gateway/oauth2-write_scope.zip"
+						"src": "./imports/Scopes/oauth2-write_scope.zip"
 					}
 				},
 				"url": {
@@ -361,7 +361,7 @@
 				"body": {
 					"mode": "file",
 					"file": {
-						"src": "./imports/gateway/oauth2-read_scope.zip"
+						"src": "./imports/Scopes/oauth2-read_scope.zip"
 					}
 				},
 				"url": {
@@ -524,7 +524,7 @@
 				"body": {
 					"mode": "file",
 					"file": {
-						"src": "./imports/POC JWT.zip"
+						"src": "./imports/APIs/POC JWT.zip"
 					}
 				},
 				"url": {
