@@ -106,5 +106,5 @@ This API uses the method of OAuth2-authentication. It is seperated into two scop
 TODO
 
 
-### Client Certification (included in client_cert)
+### Client Certification (included in example client_cert)
 You may have problems getting a valid response. This is caused by the fact that API Gateway refuses your request because you may have not deposit a certificate. Click [here](imports/client_cert/README.md) to solve this issue.
