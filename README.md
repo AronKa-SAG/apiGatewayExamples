@@ -11,10 +11,17 @@
     - [Gateway / Devportal](#gateway--devportal)
   - [Usage](#usage)
     - [Setup](#setup)
+    - [Testing](#testing)
+      - [JWT, OpenID, OAuth2](#tests-for-authorization-incl-openid-oauth2-jwt)
     - [Accessing via localhost](#accessing-via-localhost)
+  - [Introduction of Examples](#introduction-of-examples)
+    - [What is keycloak?](#what-is-keycloak)
+    - [OAuth2](#oauth2-included-in-example-keycloak)
+    - [JWT](#jwt-included-in-example-keycloak)
+    - [Client Certification](#client-certification-included-in-client_cert)
 
 ## Overview
-This repository provides multiple example usecases for SAG webMethods API Gateway.
+This repository provides multiple example usecases for SAG webMethods API Gateway (in the following called **gateway**).
 The repo uses the docker images from SAG, available on [Software AG's Docker Repo](https://containers.softwareag.com/products).
 
 ## Requirements
@@ -31,23 +38,23 @@ First of all create a docker account and subscribe to [SAG API Gateway](https://
 ### Python
 Install Python via Company Portal or download it [here](https://www.python.org/downloads/).
 At setup check the box <b>install to PATH</b>. Elsewise you won't be able to call python via commandline.
-If you forgot to check the box open **System Control>System & Security>Advanced System Settings>Environment variables** and change the **Path**-entry under **Systemvariables**. Just add the installation-path of Python.
+If you forgot to check the box open **System Control>System & Security>Advanced System Settings>Environment variables** and edit the **Path**-entry under **Systemvariables**. Just add the installation-path of Python.
 
 ### npm
 Install Node.js via Company Portal or download it [here](https://nodejs.org/en/download/). Make sure you leave everything at setup as default.
 
 ### newman
 It is required that you have already installed npm. To check type <code>npm -v</code> in commandline.
-Now install newman via commandline: <br>
+Should you have installed npm, execute the command:
 ><code>npm install -g newman</code>
 
 ### Gateway / Devportal
-To install gateway or devportal with docker open the following link: [Software AG API Gateways](https://containers.softwareag.com/products/apigateway) or [Software AG Devportal](https://containers.softwareag.com/products/devportal).
+To install gateway or devportal with docker, open the following link: [Software AG API Gateway](https://containers.softwareag.com/products/apigateway) or [Software AG Devportal](https://containers.softwareag.com/products/devportal).
 On the website check the box <b>I agree to the Software AG's Terms and conditions</b> and click **Get the pull command**. Now store the token password somewhere save. Copy the command under **Docker login** and press **Got it!**.
 To login to docker open a terminal and paste and execute the command. The command looks something like this:
 ><code>docker login *{Firstname}*-*{Lastname}*-sofwareag-com -p *{key}* sagcr.azurecr.io</code>
 
-The last step is to copy the command under **Docker Pull Command** and paste and execute it in the terminal. This looks something like this:
+The last step is to copy the command under **Docker Pull Command** and paste and execute it in the terminal. This looks something like that:
 ><code>docker pull sagcr.azurecr.io/apigateway:*{versionnumber}*</code>
 
 or
@@ -90,7 +97,7 @@ In this chapter I will try to explain some of the more complex APIs to you.
 But first I will explain keycloak by a little to you so that it is more understandable what some of the APIs are doing.
 ### What is keycloak?
 Keycloak is an authentication-server. That means its purpose is to give certain permissions to certain persons. You for sure don't want an external to use your administrative APIs, right? So therefore you create so called 'clients' in keycloak. All of those clients have other permissions. For example the Administrator has access to all APIs, while an external only has access to one specific API. 
-In API Gateway you also have the ability to give someone just read-permission. That means you are just able to make a GET-request. (further informations in [oauth2](#oauth2-(included-in-example-keycloak)))
+In API Gateway you also have the ability to give someone just read-permission. That means you are just able to make a GET-request. (further informations in [oauth2](#oauth2-included-in-example-keycloak))
 
 ### OAuth2 (included in example keycloak)
 This API uses the method of OAuth2-authentication. It is seperated into two scopes. One scope is called 'WRITE'. With that scope your are just able to POST, PUT and DELETE data. The other is called 'READ' which only allows you to GET data. Internally those two API-scopes are linked to two seperate scopes in keycloak. And those two keycloak-scopes give the client x read-permission and the client y write-permission. That means: Should client x try to GET data, gateway will refuse the request and will instead give a response with statuscode 401 (unauthorized). But should client x try to PUT data, gateway will accept the request and puts the data.
