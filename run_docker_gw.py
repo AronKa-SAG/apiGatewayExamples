@@ -1,8 +1,8 @@
-subprocess.call("pip install -r requirements.txt", shell=True)
 import os
 import subprocess
 import sys
 import time
+subprocess.call("pip install -r ./conf/requirements.txt", shell=True)
 import requests
 
 # available import-options (apis) for apigateway
@@ -112,7 +112,7 @@ if healthy_gw:
     
     # checks if httpUrls is set. If not a config-file will be pushed to apigateway
     if int(len(r.json()["httpUrls"])) == 0:
-        subprocess.call(f"{location}/newman run conf.json", shell=True)
+        subprocess.call(f"{location}/newman run ./conf/conf.json", shell=True)
 
     # will import all collections
     if key == "full":

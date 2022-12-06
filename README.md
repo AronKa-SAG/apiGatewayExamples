@@ -33,7 +33,7 @@ Docker images required:
 
 ## Installation
 ### Docker
-First of all create a docker account and subscribe to [SAG API Gateway](https://hub.docker.com/publishers/softwareag). Then install Docker via Company Portal or download it [here](https://docs.docker.com/get-docker).
+First of all create a docker account and subscribe to [SAG API Gateway](https://hub.docker.com/publishers/softwareag). Then install Docker via Company Portal or download it [here](https://docs.docker.com/get-docker). <br>**Go to your prefered CLI and type <code>docker login</code> and type in the credentials of the just created docker account.**
 
 ### Python
 Install Python via Company Portal or download it [here](https://www.python.org/downloads/).
