@@ -4,7 +4,7 @@ Author: Jonathan Lindemann in Cooperation with Aron Kaufmann
   - [Overview](#overview)
   - [Requirements](#requirements)
   - [Installation](#installation)
-    - [Docker](#docker)
+    - [Rancher Desktop](#rancher-desktop)
     - [Python](#python)
     - [npm](#npm)
     - [newman](#newman)
@@ -32,13 +32,13 @@ Docker images required:
 - jboss/keycloak
 
 ## Installation
-### Docker
-First of all create a docker account and subscribe to [SAG API Gateway](https://hub.docker.com/publishers/softwareag). Then install Docker via Company Portal or download it [here](https://docs.docker.com/get-docker).
+### Rancher Desktop
+Install Rancher Desktop via Company Portal or download it [here](https://rancherdesktop.io/). Open Rancher Desktop and let it initiate. If this is done, go to **Settings &rarr; Container Engine** and change to **'dockered (moby)'**.
 
 ### Python
 Install Python via Company Portal or download it [here](https://www.python.org/downloads/).
 At setup check the box <b>install to PATH</b>. Elsewise you won't be able to call python via commandline.
-If you forgot to check the box open **System Control>System & Security>Advanced System Settings>Environment variables** and edit the **Path**-entry under **Systemvariables**. Just add the installation-path of Python.
+If you forgot to check the box open **System Control &rarr; System & Security &rarr; Advanced System Settings &rarr; Environment variables** and edit the **Path**-entry under **Systemvariables**. Just add the installation-path of Python.
 
 ### npm
 Install Node.js via Company Portal or download it [here](https://nodejs.org/en/download/). Make sure you leave everything at setup as default.
@@ -64,7 +64,7 @@ or
 ## Usage
 
 ### Setup
-Make sure Docker Desktop is started.
+Make sure Rancher Desktop is started.
 
 Once it is started and you pulled the corresponding images, you can run the [run_docker_gw.py](run_docker_gw.py) file using the following syntax:<br>
 ><code>python run_docker_gw.py *{example_name}*</code>

@@ -1,0 +1,1111 @@
+{
+	"info": {
+		"_postman_id": "3e82fe16-4eba-4cf0-a572-bebee396e250",
+		"name": "Testing",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21920057"
+	},
+	"item": [
+		{
+			"name": "DynamicRouting +  Response Transformation Test",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"pm.test(\"URL includes right ID\", function () {\r",
+							"    pm.expect(pm.response.json().endpoint).to.include(\"123456\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Dynamic Routing works\", function() {\r",
+							"    pm.expect(pm.response.json().endpoint).to.include(\"dynamic\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Reponse contains text in header 'testheader'\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"This text is stored in the header of the call\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "manage",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "Administrator",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "testheader",
+						"value": "This text is stored in the header of the call",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:5555/gateway/DynamicRouting_PoC/1.0/test/123456",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5555",
+					"path": [
+						"gateway",
+						"DynamicRouting_PoC",
+						"1.0",
+						"test",
+						"123456"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DataMasking Test - tester",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Consumer password is unrecognizable\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.consumer.pw).to.eql(\"********\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "tester",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "manage",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5555/gateway/DataMasking-PoC/2.0/rem_meldung",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5555",
+					"path": [
+						"gateway",
+						"DataMasking-PoC",
+						"2.0",
+						"rem_meldung"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DataMasking Test - tester2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Consumer id is unrecognizable\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.consumer.id).to.eql(\"********\");\r",
+							"});\r",
+							"pm.test(\"Password is filtered out\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.pw).to.eql(undefined);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "tester2",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "manage",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5555/gateway/DataMasking-PoC/2.0/rem_meldung",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5555",
+					"path": [
+						"gateway",
+						"DataMasking-PoC",
+						"2.0",
+						"rem_meldung"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Mashup Test",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Content-Type is present\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"XML response contains expected attributes\", function () {\r",
+							"    var jsonData = xml2Json(responseBody);\r",
+							"    pm.expect(jsonData.stages.stage1.rollingstock.vehicles.vehicle).to.not.eql(undefined);\r",
+							"    pm.expect(jsonData.stages.stage2.rollingstock.vehicles.vehicle).to.not.eql(undefined);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "manage",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/xml",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:5555/gateway/API_Mashup_PoC/1.0/mashup",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5555",
+					"path": [
+						"gateway",
+						"API_Mashup_PoC",
+						"1.0",
+						"mashup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ConditionalRouting Test - tester",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status is pending\", function () {\r",
+							"    pm.expect(pm.response.json()[0].status).to.eql(\"pending\");\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "tester",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "manage",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": 2,\r\n  \"category\": {\r\n    \"id\": 0,\r\n    \"name\": \"string\"\r\n  },\r\n  \"name\": \"doggie\",\r\n  \"photoUrls\": [\r\n    \"string\"\r\n  ],\r\n  \"tags\": [\r\n    {\r\n      \"id\": 0,\r\n      \"name\": \"string\"\r\n    }\r\n  ],\r\n  \"status\": \"available\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5555/gateway/Petstore-ConditionalRouting-PoC/1.0/pet/1e7a9489-b9b7-4a7f-99d6-6afba74b2384",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5555",
+					"path": [
+						"gateway",
+						"Petstore-ConditionalRouting-PoC",
+						"1.0",
+						"pet",
+						"1e7a9489-b9b7-4a7f-99d6-6afba74b2384"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ConditionalRouting Test - tester2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "tester2",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "manage",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:5555/gateway/Petstore-ConditionalRouting-PoC/1.0/pet/findByStatus/1e7a9489-b9b7-4a7f-99d6-6afba74b2384",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5555",
+					"path": [
+						"gateway",
+						"Petstore-ConditionalRouting-PoC",
+						"1.0",
+						"pet",
+						"findByStatus",
+						"1e7a9489-b9b7-4a7f-99d6-6afba74b2384"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ClientCertificate Test",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"SSL Verification is working\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.test).to.eql(\"mocked response\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"strictSSL": false
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "manage",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "Administrator",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:5543/gateway/ClientCertificate_PoC/1.0/test",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5543",
+					"path": [
+						"gateway",
+						"ClientCertificate_PoC",
+						"1.0",
+						"test"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get My Truststore",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Is right truststore\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.truststores[0].uploadFileName).to.eql(\"myTruststore.jks\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "manage",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "Administrator",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:5555/rest/apigateway/is/truststore/myTruststore",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5555",
+					"path": [
+						"rest",
+						"apigateway",
+						"is",
+						"truststore",
+						"myTruststore"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "RequestTransformation Test",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Payload was changed successfully\", function () {\r",
+							"    pm.expect(pm.response.json().consumer.message).to.eql(\"Payload successfully changed!\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "transformData",
+						"value": "true",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"consumer\": {\r\n        \"name\": \"Compadre\",\r\n        \"id\": \"12345\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5555/gateway/RequestTransformation_PoC/1.0/post",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5555",
+					"path": [
+						"gateway",
+						"RequestTransformation_PoC",
+						"1.0",
+						"post"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "OAuth2 keycloak Test - write",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const strategy_num = \"a3dbef55-ac69-404d-ad67-644c0b9eb3f0\";\r",
+							"\r",
+							"const getClient = {\r",
+							"    url: 'http://localhost:5555/rest/apigateway/strategies/'+strategy_num,\r",
+							"    method: 'GET',\r",
+							"    header: \r",
+							"    {\r",
+							"        'Accept': 'application/json',\r",
+							"        'Authorization': 'Basic QWRtaW5pc3RyYXRvcjptYW5hZ2U='\r",
+							"    }\r",
+							"};\r",
+							"\r",
+							"pm.sendRequest(getClient, function(err, res) {\r",
+							"    if (err === null) {\r",
+							"        pm.expect(res).to.not.have.property('code', 404);\r",
+							"        const echoPostRequest = {\r",
+							"            url: 'http://localhost:5555/gateway/getKeycloakToken/1.0/getToken',\r",
+							"            method: 'GET',\r",
+							"            header: {\r",
+							"                'Content-Type': 'application/x-www-form-urlencoded'\r",
+							"            },\r",
+							"            body: {\r",
+							"                'mode':'raw',\r",
+							"                'raw': \"grant_type=password&username=\"+pm.collectionVariables.get('username')+\"&password=\"+pm.collectionVariables.get('password')+\"&scope=\"+res.json().strategy.dcrConfig.scopes[0]+\"&client_id=\"+res.json().strategy.clientRegistration.clientId+\"&client_secret=\"+res.json().strategy.clientRegistration.clientSecret\r",
+							"            }\r",
+							"        };\r",
+							"\r",
+							"        pm.sendRequest(echoPostRequest, function (err, res1) {\r",
+							"            if (err === null) {\r",
+							"                pm.collectionVariables.set('accessToken', res1.json().access_token)\r",
+							"            } else {\r",
+							"                console.log('error while trying to get accessToken of keycloak!: '+res)\r",
+							"            }\r",
+							"        });\r",
+							"    } else {\r",
+							"        console.log(\"Failed to get client-id and client-secret!: \"+err);\r",
+							"    }\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Got a token\", function () {\r",
+							"    var accessToken = pm.environment.get(\"accessToken\");\r",
+							"    pm.expect(accessToken).to.not.eql(null);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Write successful!\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.id).to.eql(2);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{accessToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": 2,\r\n  \"category\": {\r\n    \"id\": 0,\r\n    \"name\": \"string\"\r\n  },\r\n  \"name\": \"doggie\",\r\n  \"photoUrls\": [\r\n    \"string\"\r\n  ],\r\n  \"tags\": [\r\n    {\r\n      \"id\": 0,\r\n      \"name\": \"string\"\r\n    }\r\n  ],\r\n  \"status\": \"available\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5555/gateway/OAuth2-PoC/1.2/pet",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5555",
+					"path": [
+						"gateway",
+						"OAuth2-PoC",
+						"1.2",
+						"pet"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "OAuth2 keycloak Test - read",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const strategy_num = \"c09a0a7e-4bd2-445b-8d66-d29b79973405\";\r",
+							"\r",
+							"const getClient = {\r",
+							"    url: 'http://localhost:5555/rest/apigateway/strategies/'+strategy_num,\r",
+							"    method: 'GET',\r",
+							"    header: \r",
+							"    {\r",
+							"        'Accept': 'application/json',\r",
+							"        'Authorization': 'Basic QWRtaW5pc3RyYXRvcjptYW5hZ2U='\r",
+							"    }\r",
+							"};\r",
+							"\r",
+							"pm.sendRequest(getClient, function(err, res) {\r",
+							"    if (err === null) {\r",
+							"        pm.expect(res).to.not.have.property('code', 404);\r",
+							"        const echoPostRequest = {\r",
+							"            url: 'http://localhost:5555/gateway/getKeycloakToken/1.0/getToken',\r",
+							"            method: 'GET',\r",
+							"            header: {\r",
+							"                'Content-Type': 'application/x-www-form-urlencoded'\r",
+							"            },\r",
+							"            body: {\r",
+							"                'mode':'raw',\r",
+							"                'raw': \"grant_type=password&username=\"+pm.collectionVariables.get('username')+\"&password=\"+pm.collectionVariables.get('password')+\"&scope=\"+res.json().strategy.dcrConfig.scopes[0]+\"&client_id=\"+res.json().strategy.clientRegistration.clientId+\"&client_secret=\"+res.json().strategy.clientRegistration.clientSecret\r",
+							"            }\r",
+							"        };\r",
+							"\r",
+							"        pm.sendRequest(echoPostRequest, function (err, res1) {\r",
+							"            if (err === null) {\r",
+							"                pm.collectionVariables.set('accessToken', res1.json().access_token)\r",
+							"            } else {\r",
+							"                console.log('error while trying to get accessToken of keycloak!: '+res)\r",
+							"            }\r",
+							"        });\r",
+							"    } else {\r",
+							"        console.log(\"Failed to get client-id and client-secret!: \"+err);\r",
+							"    }\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Got a token\", function () {\r",
+							"    var accessToken = pm.environment.get(\"accessToken\");\r",
+							"    pm.expect(accessToken).to.not.eql(null);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Read successful!\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.name).to.eql(\"doggie\");\r",
+							"    pm.expect(jsonData.id).to.eql(2);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{accessToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5555/gateway/OAuth2-PoC/1.2/pet/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5555",
+					"path": [
+						"gateway",
+						"OAuth2-PoC",
+						"1.2",
+						"pet",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "JWT local Test",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const echoPostRequest = {\r",
+							"    url: 'http://localhost:5555/gateway/security/getJsonWebToken',\r",
+							"    method: 'POST',\r",
+							"    header: {\r",
+							"        'Content-Type': 'application/json',\r",
+							"        'x-Gateway-APIKey': pm.collectionVariables.get('JWT_apikey')\r",
+							"    },\r",
+							"    body: {\r",
+							"        'mode':'raw',\r",
+							"        'raw': '{\"claimsSet\":{\"azp\":\"jwt-client\",\"scope\":\"clientscope\"}}'\r",
+							"    }\r",
+							"};\r",
+							"\r",
+							"pm.sendRequest(echoPostRequest, function (err, res) {\r",
+							"    if (err === null) {\r",
+							"        pm.collectionVariables.set('accessToken', res.json().accessToken)\r",
+							"    } else {\r",
+							"        console.log('error while trying to get accessToken of keycloak!: '+res)\r",
+							"    }\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Got a token\", function () {\r",
+							"    var accessToken = pm.environment.get(\"accessToken\");\r",
+							"    pm.expect(accessToken).to.not.eql(null);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Call successful\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.response).to.eql(\"Authentication successful!\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{accessToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5555/gateway/JWT-PoC/1.0/response",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5555",
+					"path": [
+						"gateway",
+						"JWT-PoC",
+						"1.0",
+						"response"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "JWT keycloak Test",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const echoPostRequest = {\r",
+							"    url: 'http://localhost:5555/gateway/getKeycloakToken/1.0/getToken',\r",
+							"    method: 'GET',\r",
+							"    header: {\r",
+							"        'Content-Type': 'application/x-www-form-urlencoded'\r",
+							"    },\r",
+							"    body: {\r",
+							"        'mode':'raw',\r",
+							"        'raw': \"grant_type=password&username=\"+pm.collectionVariables.get('username')+\"&password=\"+pm.collectionVariables.get('password')+\"&scope=\"+pm.collectionVariables.get('scope')+\"&client_id=\"+pm.collectionVariables.get(\"client_id\")+\"&client_secret=\"+pm.collectionVariables.get(\"client_secret\")\r",
+							"    }\r",
+							"};\r",
+							"\r",
+							"pm.sendRequest(echoPostRequest, function (err, res) {\r",
+							"    if (err === null) {\r",
+							"        pm.expect(res).to.not.have.property('code', 404);\r",
+							"        pm.collectionVariables.set('accessToken', res.json().access_token)\r",
+							"    } else {\r",
+							"        console.log('error while trying to get accessToken of keycloak!: '+res)\r",
+							"    }\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Got a token\", function () {\r",
+							"    var accessToken = pm.environment.get(\"accessToken\");\r",
+							"    pm.expect(accessToken).to.not.eql(null);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Call successful\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.response).to.eql(\"Authentication successful!\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{accessToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5555/gateway/JWT-PoC/1.0/response",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5555",
+					"path": [
+						"gateway",
+						"JWT-PoC",
+						"1.0",
+						"response"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "OpenID Test",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const strategy_num = \"21d014d7-f3ab-4054-84cb-412cb5a1fd9e\";\r",
+							"\r",
+							"const getClient = {\r",
+							"    url: 'http://localhost:5555/rest/apigateway/strategies/'+strategy_num,\r",
+							"    method: 'GET',\r",
+							"    header: \r",
+							"    {\r",
+							"        'Accept': 'application/json',\r",
+							"        'Authorization': 'Basic QWRtaW5pc3RyYXRvcjptYW5hZ2U='\r",
+							"    }\r",
+							"};\r",
+							"\r",
+							"pm.sendRequest(getClient, function(err, res) {\r",
+							"    if (err === null) {\r",
+							"        pm.expect(res).to.not.have.property('code', 404);\r",
+							"        const echoPostRequest = {\r",
+							"            url: 'http://localhost:5555/gateway/getKeycloakToken/1.0/getToken',\r",
+							"            method: 'GET',\r",
+							"            header: {\r",
+							"                'Content-Type': 'application/x-www-form-urlencoded'\r",
+							"            },\r",
+							"            body: {\r",
+							"                'mode':'raw',\r",
+							"                'raw': \"grant_type=password&username=\"+pm.collectionVariables.get('username')+\"&password=\"+pm.collectionVariables.get('password')+\"&scope=\"+res.json().strategy.dcrConfig.scopes[0]+\"&client_id=\"+res.json().strategy.clientRegistration.clientId+\"&client_secret=\"+res.json().strategy.clientRegistration.clientSecret\r",
+							"            }\r",
+							"        };\r",
+							"\r",
+							"        pm.sendRequest(echoPostRequest, function (err, res1) {\r",
+							"            if (err === null) {\r",
+							"                pm.collectionVariables.set('accessToken', res1.json().access_token)\r",
+							"            } else {\r",
+							"                console.log('error while trying to get accessToken of keycloak!: '+res)\r",
+							"            }\r",
+							"        });\r",
+							"    } else {\r",
+							"        console.log(\"Failed to get client-id and client-secret!: \"+err);\r",
+							"    }\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Got a token\", function () {\r",
+							"    var accessToken = pm.environment.get(\"accessToken\");\r",
+							"    pm.expect(accessToken).to.not.eql(null);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Call successful\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.response).to.eql(\"Authentication successful!\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{accessToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5555/gateway/OpenID-PoC/1.0/response",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5555",
+					"path": [
+						"gateway",
+						"OpenID-PoC",
+						"1.0",
+						"response"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "password",
+				"value": "manage",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "Administrator",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "apikey",
+			"value": "04445cd7-c312-4443-b2aa-47fabdff552e"
+		},
+		{
+			"key": "token_endpoint",
+			"value": "http://keycloak:8080/auth/realms/demo/protocol/openid-connect/token",
+			"type": "string"
+		},
+		{
+			"key": "scope",
+			"value": "clientscope",
+			"type": "string"
+		},
+		{
+			"key": "auth_endpoint",
+			"value": "http://keycloak:8080/auth/realms/demo/protocol/openid-connect/auth",
+			"type": "string"
+		},
+		{
+			"key": "username",
+			"value": "testuser1",
+			"type": "string"
+		},
+		{
+			"key": "password",
+			"value": "manage",
+			"type": "string"
+		},
+		{
+			"key": "accessToken",
+			"value": null,
+			"type": "string"
+		},
+		{
+			"key": "JWT_apikey",
+			"value": "c84f98b5-05d0-4a1c-88b3-2dd080c63082",
+			"type": "string"
+		},
+		{
+			"key": "client_id",
+			"value": "jwt-client",
+			"type": "string"
+		},
+		{
+			"key": "client_secret",
+			"value": "JRGGmhLdyc95Qdx91RiuRBsh1Qd7RHrw",
+			"type": "string"
+		},
+		{
+			"key": "oauth2-write_scope",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "oauth2-read_scope",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "pet_id",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
