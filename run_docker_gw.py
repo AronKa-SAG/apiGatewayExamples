@@ -1,13 +1,9 @@
+subprocess.call("pip install -r requirements.txt", shell=True)
 import os
 import subprocess
 import sys
 import time
-try:
-    import requests
-except:
-    # installs package requests if not installed
-    subprocess.call("pip install requests", shell=True)
-    import requests
+import requests
 
 # available import-options (apis) for apigateway
 poc_dict = {}
@@ -72,7 +68,7 @@ header_gw = {
 
 
 '''
-checks if wsl is needed and if so if .wslconfig exists
+checks if wsl is needed and if .wslconfig does not exist
 -> will create .wslconfig if it doesn't exist
 '''
 wsl_config_path = os.getenv('USERPROFILE')+"\.wslconfig"
