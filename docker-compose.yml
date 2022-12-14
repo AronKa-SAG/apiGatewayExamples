@@ -5,13 +5,14 @@
 version: '3.5'  # By Aron Kaufmann
 services:
     apigateway-1:
-        image: sagcr.azurecr.io/apigateway:10.11
-        container_name: api-gateway-1011-1
+        image: sagcr.azurecr.io/apigateway:10.15
+        container_name: api-gateway-1015-1
         volumes:
             - ./imports/gateway/licensefiles:/opt/licensefiles
         # Setting for exposing ports to the outside (external port:internal port).
         ports:
             - 5555:5555 # http
+            - 9999:9999 # IS Administration
             - 5543:5543 # https
             - 9072:9072 # apigateway
             - 5566:5566 # socket
