@@ -1,0 +1,12 @@
+kind: environment
+metadata:
+  version: '1.0'
+  namespace: aka-demo
+  name: demo-test-1_0-environment
+  tags: []
+apiVersion: api.ibm.com/v1
+spec:
+  variables:
+    - key: x-Gateway-APIKey_value
+      isSecret: true
+      value: $(x-Gateway-APIKey_value)

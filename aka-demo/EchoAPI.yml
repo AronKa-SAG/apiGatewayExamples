@@ -1,0 +1,13 @@
+kind: API
+apiVersion: api.ibm.com/v1
+metadata:
+  name: EchoAPI
+  namespace: aka-demo
+  version: '1.0'
+  tags: []
+  type: REST
+spec:
+  api-spec:
+    $path: ./EchoAPI-spec.json
+  policy-sequence:
+    - $ref: aka-demo:echo-api-policy:1.0

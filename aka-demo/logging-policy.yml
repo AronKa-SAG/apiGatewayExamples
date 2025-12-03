@@ -1,0 +1,19 @@
+kind: Log
+apiVersion: api.ibm.com/v1
+metadata:
+  name: logging-policy
+  namespace: aka-demo
+  version: '1.0'
+  tags:
+    - aka
+  labels:
+    gatewayTypes:
+      - webMethods
+spec:
+  logRequestHeaders: true
+  logRequestPayload: true
+  logResponseHeaders: true
+  logResponsePayload: true
+  logGenerationFrequency: always
+  destination:
+    - api_gateway

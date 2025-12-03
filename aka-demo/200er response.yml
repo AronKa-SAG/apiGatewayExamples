@@ -1,0 +1,12 @@
+kind: assertion
+apiVersion: api.ibm.com/v1
+metadata:
+  name: 200er response
+  namespace: aka-demo
+  version: '1.0'
+  tags: []
+spec:
+  - name: "200"
+    key: responseStatus
+    value: 200
+    action: equals

@@ -1,0 +1,16 @@
+kind: StagedPolicySequence
+apiVersion: api.ibm.com/v1
+metadata:
+  name: echo-api-policy
+  namespace: aka-demo
+  version: '1.0'
+  tags:
+    - aka
+  labels:
+    gatewayTypes:
+      - webMethods
+spec:
+  routing:
+    - $ref: aka-demo:invoke-echo-api-policy:1.0
+  monitoring:
+    - $ref: aka-demo:logging-policy:1.0

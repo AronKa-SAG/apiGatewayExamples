@@ -1,0 +1,13 @@
+kind: environment
+apiVersion: api.ibm.com/v1
+metadata:
+  name: test-environment
+  namespace: aka-demo
+  version: '1.0'
+  tags:
+    - aka
+spec:
+  variables:
+    - key: api-key
+      isSecret: false
+      value: 6c5b7340-4ceb-49d3-a9a3-4fdfc7b978bf

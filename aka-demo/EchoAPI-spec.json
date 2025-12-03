@@ -1,0 +1,68 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+        "title": "EchoAPI",
+        "version": "1.0",
+        "description": "my dummy desc",
+        "contact": {
+            "name": "aron.kaufmann@ibm.com"
+        }
+    },
+    "servers": [
+        {
+            "url": "https://postman-echo.com"
+        }
+    ],
+    "security": [
+        {
+            "apiKey": []
+        }
+    ],
+    "paths": {
+        "/get": {
+            "summary": "/get",
+            "get": {
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "echoes incoming request"
+                    }
+                },
+                "description": "get request which gets echoed",
+                "operationId": "get-echo",
+                "tags": [
+                    "get"
+                ]
+            },
+            "parameters": [],
+            "description": "get request which gets echoed"
+        }
+    },
+    "components": {
+        "schemas": {},
+        "responses": {},
+        "parameters": {},
+        "examples": {},
+        "requestBodies": {},
+        "headers": {},
+        "securitySchemes": {
+            "apiKey": {
+                "type": "apiKey",
+                "name": "x-Gateway-APIKey",
+                "in": "header"
+            }
+        },
+        "links": {},
+        "callbacks": {}
+    },
+    "tags": [
+        {
+            "name": "get",
+            "description": "",
+            "externalDocs": {
+                "url": "",
+                "description": ""
+            }
+        }
+    ]
+}

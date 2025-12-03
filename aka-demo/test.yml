@@ -1,0 +1,11 @@
+kind: MonitorTraffic
+apiVersion: api.ibm.com/v1
+metadata:
+  name: test
+  namespace: aka-demo
+  version: "1.0"
+  tags: []
+  labels:
+    gatewayTypes:
+      - webMethods
+spec: {}
