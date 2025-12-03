@@ -1,0 +1,15 @@
+kind: FreeFlowPolicySequence
+apiVersion: api.ibm.com/v1
+metadata:
+  name: echo-api-nanogw
+  namespace: aka-demo
+  version: '1.0'
+  tags:
+    - nano
+  labels:
+    gatewayTypes:
+      - nano
+spec:
+  main:
+    - $ref: aka-demo:Authenticate-ypynfp:1.0
+    - $ref: aka-demo:invoke-echo-api-nanogw:1.0

@@ -1,0 +1,11 @@
+kind: Authenticate
+apiVersion: api.ibm.com/v1
+metadata:
+  name: Authenticate-ypynfp
+  namespace: aka-demo
+  version: "1.0"
+  tags: []
+  labels:
+    gatewayTypes:
+      - nano
+spec: {}

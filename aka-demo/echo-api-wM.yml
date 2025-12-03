@@ -1,7 +1,7 @@
 kind: StagedPolicySequence
 apiVersion: api.ibm.com/v1
 metadata:
-  name: echo-api-policy
+  name: echo-api-wM
   namespace: aka-demo
   version: '1.0'
   tags:

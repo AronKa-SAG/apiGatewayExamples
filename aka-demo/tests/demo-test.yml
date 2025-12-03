@@ -3,13 +3,11 @@ apiVersion: api.ibm.com/v1
 metadata:
   namespace: aka-demo
   name: demo-test
-  version: '1.0'
+  version: "1.0"
   tags: []
 spec:
   api:
     $ref: aka-demo:EchoAPI:1.0
-  environment:
-    $ref: aka-demo:demo-test-1_0-environment:1.0
   request:
     - method: GET
       resource: /get
@@ -19,3 +17,5 @@ spec:
       parameters: []
       assertions:
         - $ref: aka-demo:200er response:1.0
+  environment:
+    $ref: aka-demo:test-environment:1.0

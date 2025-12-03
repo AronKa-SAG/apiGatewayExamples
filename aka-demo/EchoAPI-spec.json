@@ -13,11 +13,6 @@
             "url": "https://postman-echo.com"
         }
     ],
-    "security": [
-        {
-            "apiKey": []
-        }
-    ],
     "paths": {
         "/get": {
             "summary": "/get",
@@ -45,23 +40,17 @@
         "examples": {},
         "requestBodies": {},
         "headers": {},
-        "securitySchemes": {
-            "apiKey": {
-                "type": "apiKey",
-                "name": "x-Gateway-APIKey",
-                "in": "header"
-            }
-        },
+        "securitySchemes": {},
         "links": {},
         "callbacks": {}
     },
     "tags": [
         {
-            "name": "get",
-            "description": "",
+            "name": "aka",
+            "description": "testing tags",
             "externalDocs": {
-                "url": "",
-                "description": ""
+                "url": "https://docs.com",
+                "description": "mandatory doc link"
             }
         }
     ]

@@ -1,0 +1,50 @@
+kind: DataPowerAssembly
+apiVersion: api.ibm.com/v1
+metadata:
+  name: echo-api-datapower
+  namespace: aka-demo
+  version: '1.0'
+  tags:
+    - dp
+  labels:
+    gatewayTypes:
+      - datapower
+spec:
+  x-ibm-configuration:
+    enforced: true
+    testable: true
+    phase: realized
+    gateway: datapower-api-gateway
+    assembly:
+      execute:
+        - log:
+            version: 2.1.0
+            title: log
+            log-level: default
+            mode: gather-and-send
+            description: test log policy
+        - invoke:
+            version: 2.3.0
+            title: invoke
+            backend-type: detect
+            header-control:
+              type: blocklist
+              values: []
+            parameter-control:
+              type: allowlist
+              values: []
+            http-version: HTTP/1.1
+            timeout: 60
+            verb: keep
+            chunked-uploads: true
+            persistent-connection: true
+            cache-response: protocol
+            cache-ttl: 900
+            websocket-upgrade: false
+            graphql-send-type: detect
+            target-url: https://postman-echo.com
+      catch: []
+    activity-log:
+      enabled: true
+      success-content: header
+      error-content: header
