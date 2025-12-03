@@ -1,0 +1,6 @@
+projects:
+  aka-demo:
+    description: demo api for testing api studio deployment
+    tags:
+      - aka
+    lastUpdated: 1764773944787
