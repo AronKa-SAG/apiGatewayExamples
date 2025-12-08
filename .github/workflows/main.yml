@@ -15,23 +15,22 @@ jobs:
       # 1. Check out repository
       - name: Checkout repository
         uses: actions/checkout@v4
-
-      # 2. Install CLI, download after GA: curl -L "https://ibm.com/api-studio/latest/linux-amd64" -o mycli
-      - name: Install My CLI
+      
+      # 2. Install Node + CLI via npm
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          
+      - name: Install APIM CLI
         run: |
-          chmod +x apistudio-cli
-          sudo mv apistudio-cli /usr/local/bin/mycli
-        
-      # 3. Validate YAML files (optional but recommended)
-      #- name: Validate YAML
-      #  run: |
-      #    sudo apt-get update
-      #    sudo apt-get install -y yamllint
-      #    yamllint ./yaml/
-
-      # 4. Run deploy command
+          npm install -g @apistudio/apim-cli
+          
+      # 3. Run deploy command
       - name: Deploy using CLI
         env:
-          API_TOKEN: ${{ secrets.API_TOKEN }}   # Example secret
+          APIGW_PW: ${{ secrets.password }}
+          APIGW_USER: ${{ secrets.username }}
+          APIGW_HOST: ${{ secrets.hostname }}
         run: |
-          mycli deploy -f ./aka-demo/ --token "$API_TOKEN"
+          apic deploy EchoAPI --names aka-demo:EchoAPI:1.0 --localDir ./aka-demo --target "$APIGW_HOST" --username "$APIGW_USER" --password "$APIGW_PW" --overwrite
