@@ -10,5 +10,6 @@ spec:
   api-spec:
     $path: ./EchoAPI-spec.json
   policy-sequence:
-    - $ref: aka-demo:echo-api-wM:1.0
     - $ref: aka-demo:echo-api-datapower:1.0
+#    - $ref: aka-demo:echo-api-wM:1.0
+
