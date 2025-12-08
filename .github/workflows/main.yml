@@ -1,0 +1,37 @@
+name: Deploy API Project
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read    # least privilege
+
+    steps:
+      # 1. Check out repository
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 2. Install CLI, download after GA: curl -L "https://ibm.com/api-studio/latest/linux-amd64" -o mycli
+      - name: Install My CLI
+        run: |
+          chmod +x apistudio-cli
+          sudo mv apistudio-cli /usr/local/bin/mycli
+        
+      # 3. Validate YAML files (optional but recommended)
+      #- name: Validate YAML
+      #  run: |
+      #    sudo apt-get update
+      #    sudo apt-get install -y yamllint
+      #    yamllint ./yaml/
+
+      # 4. Run deploy command
+      - name: Deploy using CLI
+        env:
+          API_TOKEN: ${{ secrets.API_TOKEN }}   # Example secret
+        run: |
+          mycli deploy -f ./aka-demo/ --token "$API_TOKEN"
