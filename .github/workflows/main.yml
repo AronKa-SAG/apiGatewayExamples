@@ -39,4 +39,4 @@ jobs:
           APIGW_USER: ${{ secrets.username }}
           APIGW_HOST: ${{ secrets.hostname }}
         run: |
-          apic deploy aka-demo --names aka-demo:EchoAPI:1.0 --localDir ./aka-demo --target "$APIGW_HOST" --username "$APIGW_USER" --password "$APIGW_PW" --overwrite
+          apic deploy aka-demo --names aka-demo:EchoAPI:1.0 --localDir /home/runner/work/apiGatewayExamples/apiGatewayExamples --target "$APIGW_HOST" --username "$APIGW_USER" --password "$APIGW_PW" --overwrite
