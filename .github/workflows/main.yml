@@ -25,7 +25,13 @@ jobs:
       - name: Install APIM CLI
         run: |
           npm install -g @apistudio/apim-cli
-          
+      
+      - name: check directory
+        run: |
+          echo "GITHUB_WORKSPACE: $GITHUB_WORKSPACE"
+          echo "HOME: $HOME"
+          echo "PWD: $PWD"
+          ls -al $GITHUB_WORKSPACE
       # 3. Run deploy command
       - name: Deploy using CLI
         env:
