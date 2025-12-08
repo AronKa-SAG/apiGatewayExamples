@@ -25,13 +25,7 @@ jobs:
       - name: Install APIM CLI
         run: |
           npm install -g @apistudio/apim-cli
-      
-      - name: check directory
-        run: |
-          echo "GITHUB_WORKSPACE: $GITHUB_WORKSPACE"
-          echo "HOME: $HOME"
-          echo "PWD: $PWD"
-          ls -al $GITHUB_WORKSPACE
+
       # 3. Run deploy command
       - name: Deploy using CLI
         env:
@@ -39,4 +33,4 @@ jobs:
           APIGW_USER: ${{ secrets.username }}
           APIGW_HOST: ${{ secrets.hostname }}
         run: |
-          apic deploy aka-demo --names aka-demo:EchoAPI:1.0 --localDir /home/runner/work/apiGatewayExamples/apiGatewayExamples --target "$APIGW_HOST" --username "$APIGW_USER" --password "$APIGW_PW" --overwrite
+          apic deploy aka-demo --names aka-demo:EchoAPI:1.0 --localDir "$GITHUB_WORKSPACE" --target "$APIGW_HOST" --username "$APIGW_USER" --password "$APIGW_PW" --overwrite
