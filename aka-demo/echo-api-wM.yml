@@ -14,3 +14,5 @@ spec:
     - $ref: aka-demo:invoke-echo-api-policy:1.0
   monitoring:
     - $ref: aka-demo:logging-policy:1.0
+  transport:
+    - $ref: aka-demo:demo-policy:1.0

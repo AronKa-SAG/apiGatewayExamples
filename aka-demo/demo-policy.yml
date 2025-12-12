@@ -1,0 +1,12 @@
+kind: SetMediaType
+apiVersion: api.ibm.com/v1
+metadata:
+  name: demo-policy
+  namespace: aka-demo
+  version: '1.0'
+  tags: []
+  labels:
+    gatewayTypes:
+      - webMethods
+spec:
+  defaultContentType: application/json
